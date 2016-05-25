@@ -59,6 +59,9 @@ function! <SID>StripTrailingWhitespace()
 endfunction
 nnoremap <silent> <Leader>bs :call <SID>StripTrailingWhitespace()<CR>
 
+" Pretty print json
+nnoremap <leader>jp :%!python -m json.tool<CR>
+
 " ------- CODING LANGUAGES -------
 
 " Respect PEP8 indentation, line width and unix format for python files
@@ -73,7 +76,9 @@ au BufNewFile,BufRead *.py
 
 " Flagging unnecesary whitespace
 highlight BadWhitespace ctermbg=red guibg=darkred
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+" Don't flag whitespace in insert mode
+au InsertEnter * match BadWhitespace /\s\+\%#\@<!$/
+au InsertLeave * match BadWhitespace /\s\+$/
 
 " utf8 support
 set encoding=utf-8
