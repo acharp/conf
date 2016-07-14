@@ -51,19 +51,23 @@ noremap <up> <nop>
 noremap <down> <nop>
 noremap <right> <nop>
 
-" Stripping EOF blank spaces
-function! <SID>StripTrailingWhitespace()
-	" Preparation: save last search, and cursor position.
-	let _s=@/
-	let l = line(".")
-	let c = col(".")
-	" Do the business:
-	%s/\s\+$//e
-	" Clean up: restore previous search history, and cursor position
-	let @/=_s
-	call cursor(l, c)
-endfunction
-nnoremap <silent> <Leader>bs :call <SID>StripTrailingWhitespace()<CR>
+" highlight trailing space
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+" Delete trailing white space on save, useful for Python and CoffeeScript ;)
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+autocmd BufWrite * :call DeleteTrailingWS()
+" Delete trailing whitespaces manually
+nnoremap <silent> <Leader>bs :call DeleteTrailingWS()<CR>
 
 " Pretty print json
 nnoremap <leader>jp :%!python -m json.tool<CR>
@@ -71,6 +75,12 @@ nnoremap <leader>jp :%!python -m json.tool<CR>
 " Seriously, guys. It's not like :W is bound to anything anyway.
 command! W :w
 command! Wq :wq
+
+" Set 5 lines to the cursor - when moving vertically
+set scrolloff=5
+
+" Yank from current cursor position to end of line
+map Y y$
 
 " Triggers {{{
 
@@ -82,21 +92,143 @@ command! Wq :wq
 
 " }}}
 
+" Searching {{{
+
+    " sane regexes
+    nnoremap / /\v
+    vnoremap / /\v
+
+    set infercase
+    set ignorecase
+    set smartcase
+    set showmatch
+    set gdefault
+    set hlsearch
+    set incsearch
+
+    " clear search matching
+    noremap <leader>c :noh<cr>:call clearmatches()<cr>
+
+    " Don't jump when using * for search
+    nnoremap * *<c-o>
+
+    " Keep search matches in the middle of the window.
+    nnoremap n nzzzv
+    nnoremap N Nzzzv
+
+    " Same when jumping around
+    nnoremap g; g;zz
+    nnoremap g, g,zz
+
+    " Open a Quickfix window for the last search.
+    nnoremap <silent> <leader>? :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
+
+    " Highlight word {{{
+
+        nnoremap <silent> <leader>hh :execute 'match InterestingWord1 /\<<c-r><c-w>\>/'<cr>
+        nnoremap <silent> <leader>h1 :execute 'match InterestingWord1 /\<<c-r><c-w>\>/'<cr>
+        nnoremap <silent> <leader>h2 :execute '2match InterestingWord2 /\<<c-r><c-w>\>/'<cr>
+        nnoremap <silent> <leader>h3 :execute '3match InterestingWord3 /\<<c-r><c-w>\>/'<cr>
+
+    " }}}
+
+" }}}
+
+" Return to last edit position when opening files (You want this!)
+autocmd BufReadPost *
+     \ if line("'\"") > 0 && line("'\"") <= line("$") |
+     \   exe "normal! g`\"" |
+     \ endif
+" Remember info about open buffers on close
+set viminfo^=%
+
+" Switch CWD to the directory of the open buffer
+map <leader>cd :cd %:p:h<cr>:pwd<cr>
+
+" Treat long lines as break lines (useful when moving around in them)
+map j gj
+map k gk
+
+" Visual mode pressing * or # searches for the current selection
+" Super useful! From an idea by Michael Naumann
+vnoremap <silent> * :call VisualSelection('f', '')<CR>
+vnoremap <silent> # :call VisualSelection('b', '')<CR>
+
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+" Don't redraw while executing macros (good performance config)
+set lazyredraw
+
+" For regular expressions turn magic on
+set magic
+
+" Show matching brackets when text indicator is over them
+set showmatch
+" How many tenths of a second to blink when matching brackets
+set mat=2
+
+" No annoying sound on errors
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
+
+" Make sure that extra margin on left is removed
+set foldcolumn=0
+
+" Turn on the WiLd menu
+set wildmenu
+" Set command-line completion mode
+set wildmode=list:longest,full
+" Completion options (select longest + show menu even if a single match is found)
+set completeopt=longest,menuone
+set wildignore=.svn,CVS,.git,.hg,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,.DS_Store,*.aux,*.out,*.toc,tmp,*.scssc
+
+" Highlight current line - allows you to track cursor position more easily
+set cursorline
+
+" This is totally awesome - remap jj to escape in insert mode.  You'll never type jj anyway, so it's great!
+inoremap jj <esc>
+nnoremap JJJJ <nop>
+
+" let's make sure we are in noncompatble mode
+set nocp
+
+" Sets how many lines of history VIM has to remember
+set history=700
+
+" Make sure that coursor is always vertically centered on j/k moves
+set so=999
+
+" add vertical lines on columns
+set colorcolumn=80,120
+
+" Remap VIM 0 to first non-blank character
+map 0 ^
+
+
 " ------- CODING LANGUAGES -------
 
-    \ set tabstop=4 |
-    \ set softtabstop=4 |
-    \ set shiftwidth=4 |
-    \ set textwidth=79 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix |
+" __PYTHON__
 
-" Flagging unnecesary whitespace
-highlight BadWhitespace ctermbg=red guibg=darkred
-" Don't flag whitespace in insert mode
-au InsertEnter * match BadWhitespace /\s\+\%#\@<!$/
-au InsertLeave * match BadWhitespace /\s\+$/
+" Python whitespace formatting (used as default)
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+"set textwidth=80
+set shiftwidth=4
+" Round indent to multiple of 'shiftwidth' for > and < commands
+set shiftround
+" Use spaces instead of tabs
+set expandtab
+" Be smart when using tabs ;)
+set smarttab
+set autoindent
+set smartindent
+set fileformat=unix
+set nowrap "Don't Wrap lines (it is stupid)
 
 " utf8 support
 set encoding=utf-8
@@ -115,7 +247,73 @@ EOF
 nnoremap <leader>pdb iimport pdb; pdb.set_trace()<esc>
 
 
-" ------- VUNDLE ------- 
+" __GO__
+
+let g:go_fmt_fail_silently = 1
+let g:go_fmt_command = "gofmt" "Explicited the formater plugin (gofmt, goimports, goreturn...)
+let g:go_fmt_autosave = 0 "Disable auto fmt on save
+let g:go_play_open_browser = 0 "Disable opening browser after posting your snippet to play.golang.org
+let g:go_list_type = "quickfix" "Outputs of build and test works well with syntastic
+
+" Show a list of interfaces which is implemented by the type under your cursor
+au FileType go nmap <Leader>gm <Plug>(go-implements)
+
+" Show type info for the word under your cursor
+au FileType go nmap <Leader>gi <Plug>(go-info)
+
+" Open the relevant Godoc for the word under the cursor
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+
+" Open the Godoc in browser
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+
+" Run/build/test/coverage
+au FileType go nmap <leader>gr <Plug>(go-run)
+au FileType go nmap <leader>gb <Plug>(go-build)
+au FileType go nmap <leader>gt <Plug>(go-test)
+au FileType go nmap <leader>gc <Plug>(go-coverage)
+
+" By default syntax-highlighting for Functions, Methods and Structs is disabled.
+" Let's enable them!
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+
+
+" ------- VUNDLE -------
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -175,15 +373,28 @@ set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
 
+" GO plugin
+Plugin 'fatih/vim-go'
+
+" Displays a sidebar with the structure of tags in the current file
+Plugin 'majutsushi/tagbar'
+nmap <leader>t :TagbarToggle<CR>
+let g:tagbar_ctags_bin = '/usr/local/Cellar/ctags/5.8_1/bin/ctags'
+
 " Explore file system as a tree
 Plugin 'scrooloose/nerdtree'
 " Automatically open a NERDTree when vim starts
 autocmd vimenter * NERDTree
 " Shortcut to open/close NERDTree
 map <C-n> :NERDTreeToggle<CR>
+" Locate file in hierarchy quickly
+map <C-t> :NERDTreeFind<cr>
 
 " Make nerdtree well integrated with tabs
 Plugin 'jistr/vim-nerdtree-tabs'
+
+" Syntax highlighting for markdown files
+Plugin 'tpope/vim-markdown'
 
 " Add git features to nerdtree
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -221,11 +432,6 @@ Plugin 'chrisbra/csv.vim'
 Plugin 'mitsuhiko/vim-jinja'
 au BufNewFile,BufRead *.j2,*.html,*.htm,*.shtml,*.stm set ft=jinja
 
-" Highlighting whitespaces
-Plugin 'ntpeters/vim-better-whitespace'
-nnoremap <leader>b :ToggleWhitespace<CR>
-highlight ExtraWhitespace ctermbg=red
-
 " Killing buffers in a better way
 Plugin 'qpkorr/vim-bufkill'
 nnoremap <leader>bd :BD<CR>
@@ -238,7 +444,4 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
-
-
-
 
