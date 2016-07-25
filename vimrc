@@ -208,6 +208,9 @@ set colorcolumn=80,120
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
+" Copy to clipboad the absolute path of the directory of the current file
+nnoremap <leader>p :let @*=expand("%:p:h")<CR>
+
 
 " ------- CODING LANGUAGES -------
 
@@ -435,6 +438,9 @@ au BufNewFile,BufRead *.j2,*.html,*.htm,*.shtml,*.stm set ft=jinja
 " Killing buffers in a better way
 Plugin 'qpkorr/vim-bufkill'
 nnoremap <leader>bd :BD<CR>
+
+" Tmux-Vim navigation
+Plugin 'christoomey/vim-tmux-navigator'
 
 " Git integration in vim. Currently not used.
 " Plugin 'tpope/vim-fugitive'
