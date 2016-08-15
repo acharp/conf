@@ -438,6 +438,10 @@ set termencoding=utf-8
 " Working with CSV files effectively
 Plugin 'chrisbra/csv.vim'
 
+" Gundo tree
+Plugin 'sjl/gundo.vim'
+nnoremap <F5> :GundoToggle<CR>
+
 " Highlighting for jinja templates
 Plugin 'mitsuhiko/vim-jinja'
 au BufNewFile,BufRead *.j2,*.html,*.htm,*.shtml,*.stm set ft=jinja
