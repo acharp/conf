@@ -53,7 +53,7 @@ export PS1="$purple\u$green\$(__git_ps1)$blue \W $ $reset"
 
 alias gitstom="git checkout master"
 alias gitnb="git pull origin master; git checkout -b $1"
-alias gitsm="git add .; git commit -m \"Squash me\""
+alias gitsm="git add .; git commit -m \"#Squash me\""
 
 
 ##### PYENV  ######
