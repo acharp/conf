@@ -34,6 +34,10 @@ bind -m vi-insert "\C-a.":beginning-of-line
 bind -m vi-insert "\C-e.":end-of-line
 bind -m vi-insert "\C-w.":backward-kill-word
 
+# Safe colors in tmux
+export TERM="screen-256color"
+alias tmux="tmux -2"
+
 
 ###### GIT #####
 

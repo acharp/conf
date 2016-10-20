@@ -209,9 +209,6 @@ set history=700
 " Make sure that coursor is always vertically centered on j/k moves
 set so=999
 
-" add vertical lines on columns
-set colorcolumn=80,120
-
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
@@ -381,7 +378,8 @@ Plugin 'altercation/vim-colors-solarized'
 syntax enable
 set background=dark
 let g:solarized_termcolors=256
-colorscheme solarized
+" colorscheme solarized
+colorscheme default
 
 " GO plugin
 Plugin 'fatih/vim-go'
