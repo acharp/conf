@@ -35,6 +35,10 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap <leader>q :bprev<CR>
 nnoremap <leader>w :bnext<CR>
 
+" Split buffers shorctuts
+nnoremap <leader>sv :exec "vert sb".bufnr("%")<CR>
+nnoremap <leader>sh :exec "rightbelow sb".bufnr("%")<CR>
+
 " Select all
 nnoremap <leader>a <esc>ggVG<CR>
 
