@@ -4,8 +4,21 @@
 " Leader key
 let mapleader=" "
 
-" Activate line number
-set nu
+" Activate relative line numbers
+set rnu
+
+" Switch between relative and absolute line numbers
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+nnoremap <leader>n :call NumberToggle()<cr>
+
+" Launch pathogen
+execute pathogen#infect()
 
 " Choose swapfile directory
 set swapfile
@@ -382,7 +395,9 @@ Plugin 'altercation/vim-colors-solarized'
 syntax enable
 set background=dark
 let g:solarized_termcolors=256
+let g:solarized_termtrans=1
 " colorscheme solarized
+" Solarized-dark works but I prefer iTerm2 Afterglow theme
 colorscheme default
 
 " GO plugin
@@ -407,6 +422,9 @@ Plugin 'jistr/vim-nerdtree-tabs'
 
 " Syntax highlighting for markdown files
 Plugin 'tpope/vim-markdown'
+
+" Make surrounding easier
+Plugin 'tpope/vim-surround'
 
 " Add git features to nerdtree
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -434,7 +452,7 @@ let g:Powerline_symbols = 'fancy'
 set encoding=utf-8
 set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
-set term=xterm-256color
+set term=screen-256color
 set termencoding=utf-8
 
 " Working with CSV files effectively
