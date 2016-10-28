@@ -1,10 +1,6 @@
+#!/bin/bash
+
 sudo apt-get update
-
-sudo apt-get -y install git
-
-cd ~
-
-git clone https://github.com/acharp/conf.git
 
 # Set up dotfiles
 rm .bashrc
@@ -27,3 +23,16 @@ sudo apt-get -y install build-essential cmake
 sudo apt-get -y install python-dev python3-dev
 cd ~/.vim/bundle/YouCompleteMe
 ./install.py --clang-completer
+
+# Python set up
+sudo apt-get -y install python-pip
+git clone https://github.com/yyuu/pyenv.git ~/.pyenv
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+sudo pip install virtualenv
+
+# Scala and sbt
+sudo apt-get -y remove scala-library scala
+sudo apt-get -y install scala
+sudo apt-get -y install sbt
