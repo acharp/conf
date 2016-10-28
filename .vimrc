@@ -74,6 +74,10 @@ noremap <left> <nop>
 noremap <up> <nop>
 noremap <down> <nop>
 noremap <right> <nop>
+inoremap <left> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <right> <nop>
 
 " highlight trailing space
 highlight ExtraWhitespace ctermbg=red guibg=red

@@ -1,0 +1,19 @@
+[core]
+	editor = vim
+    excludesfile = ~/.gitignore_global
+[pull]
+    rebase = preserve
+[push]
+	default = upstream
+[merge]
+	conflictstyle = diff3
+	tool = vimdiff
+[user]
+	name = acharp
+	email = arnaudcharpentier91@gmail.com
+[credential]
+	helper = osxkeychain
+[diff]
+	tool = vimdiff
+[mergetool]
+	prompt = false
