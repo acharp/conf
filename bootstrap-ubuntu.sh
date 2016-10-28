@@ -3,13 +3,17 @@
 sudo apt-get update
 
 # Set up dotfiles
-rm .bashrc
-ln -s conf/.bashrc .bashrc
-ln -s conf/.bash_profile .bashrc
-ln -s conf/.tmux.conf .tmux.conf
-ln -s conf/.vimrc .vimrc
-ln -s conf/.gitignore_global .gitignore_global
-cp .gitconfig ~/
+rm ~/.bashrc
+ln -s conf/.bashrc ~/.bashrc
+ln -s conf/.bashrc ~/.bash_profile
+ln -s conf/.tmux.conf ~/.tmux.conf
+ln -s conf/.vimrc ~/.vimrc
+ln -s conf/.gitignore_global ~/.gitignore_global
+cp conf/.gitconfig ~/
+
+# Fix tmux
+cat .tmux.conf | grep -v "set-option -g default-command \"reattach-to-user-namespace bash\"" > tmux_tmp
+mv tmux_tmp .tmux.conf
 
 # Install Pathogen
 mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
@@ -36,3 +40,6 @@ sudo pip install virtualenv
 sudo apt-get -y remove scala-library scala
 sudo apt-get -y install scala
 sudo apt-get -y install sbt
+
+cd ~
+. .bashrc
