@@ -267,8 +267,8 @@ if 'VIRTUAL_ENV' in os.environ:
   execfile(activate_this, dict(__file__=activate_this))
 EOF
 
-" Insert import pdb; pdb.set_trace()
-nnoremap <leader>pdb iimport pdb; pdb.set_trace()<esc>
+" Insert import ipdb; ipdb.set_trace()
+nnoremap <leader>pdb iimport ipdb; ipdb.set_trace()<esc>
 
 
 " __GO__

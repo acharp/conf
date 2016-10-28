@@ -4,6 +4,8 @@ export PAGER="less"
 
 export EDITOR=/usr/bin/vim
 
+export CLICOLOR="screen-256color"
+
 alias ..="cd .."
 alias la="ls -a"
 
