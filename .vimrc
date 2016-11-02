@@ -15,10 +15,13 @@ function! NumberToggle()
     set relativenumber
   endif
 endfunc
-nnoremap <leader>n :call NumberToggle()<cr>
+nnoremap <leader>nn :call NumberToggle()<cr>
 
 " Launch pathogen
 execute pathogen#infect()
+
+" Shorter update time to triggerp lugins
+set updatetime=1000
 
 " Choose swapfile directory
 set swapfile
@@ -43,6 +46,9 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Reload vimrc
+nnoremap <leader>rl :source ~/.vimrc<CR>
 
 " Switch between buffers
 nnoremap <leader>q :bprev<CR>
@@ -80,12 +86,14 @@ inoremap <down> <nop>
 inoremap <right> <nop>
 
 " highlight trailing space
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
+" Doesn't work as expected. Syntax highlighting + delete trailing white space
+" on save are enough.
+"highlight ExtraWhitespace ctermbg=red guibg=red
+"match ExtraWhitespace /\s\+$/
+"autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+"autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+"autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+"autocmd BufWinLeave * call clearmatches()
 
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
@@ -275,6 +283,15 @@ EOF
 nnoremap <leader>pdb iimport ipdb; ipdb.set_trace()<esc>
 
 
+" __Scala__
+
+" Scaladoc2 style
+let g:scala_scaladoc_indent = 1
+
+" Avoid looking in SBT (and Maven) target repo while searching with CtrlP
+set wildignore+=*/target/*
+
+
 " __GO__
 
 let g:go_fmt_fail_silently = 1
@@ -385,7 +402,7 @@ let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 " Choose the python checkers to use. Default flake8, uncomment to change.
 "let g:syntastic_python_checkers = ['pydocstyle']
 " Activate python highlighting
-let python_highlight_all=1
+"let python_highlight_all=1
 syntax on
 " Close and display syntax checking window
 nnoremap <leader><Down> :lclose<CR>
@@ -406,6 +423,9 @@ colorscheme default
 
 " GO plugin
 Plugin 'fatih/vim-go'
+
+" Scala plugin
+Plugin 'derekwyatt/vim-scala'
 
 " Displays a sidebar with the structure of tags in the current file
 Plugin 'majutsushi/tagbar'
@@ -477,8 +497,10 @@ nnoremap <leader>bd :BD<CR>
 " Tmux-Vim navigation
 Plugin 'christoomey/vim-tmux-navigator'
 
-" Git integration in vim. Currently not used.
-" Plugin 'tpope/vim-fugitive'
+" Git integration in vim
+Plugin 'tpope/vim-fugitive'
+nnoremap <leader>bgh :Gbrowse<CR>
+Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

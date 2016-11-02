@@ -71,6 +71,11 @@ if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 
+##### JAVA ####
+
+export JAVA_HOME="`/usr/libexec/java_home -v 1.8`"
+
+
 ##### GO ####
 
 export GOPATH="$HOME/golang"
