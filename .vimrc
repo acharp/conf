@@ -56,7 +56,7 @@ nnoremap <leader>w :bnext<CR>
 
 " Split buffers shorctuts
 nnoremap <leader>sv :exec "vert sb".bufnr("%")<CR>
-nnoremap <leader>sh :exec "rightbelow sb".bufnr("%")<CR>
+nnoremap <leader>so :exec "rightbelow sb".bufnr("%")<CR>
 
 " Select all
 nnoremap <leader>a <esc>ggVG<CR>
@@ -399,6 +399,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_python_exec = '/usr/local/bin/python3'
+" Control manually syntastic checking or not
+nnoremap <leader>syo :SyntasticToggleMode<CR>
+nnoremap <leader>syc :SyntasticCheck<CR>
 " Choose the python checkers to use. Default flake8, uncomment to change.
 "let g:syntastic_python_checkers = ['pydocstyle']
 " Activate python highlighting
