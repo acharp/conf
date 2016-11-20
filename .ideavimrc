@@ -1,0 +1,145 @@
+" Leader key
+let mapleader=" "
+
+" Select all
+nnoremap <leader>a <esc>ggVG<CR>
+
+" Select word - Copy word
+nnoremap <leader>sw bve
+nnoremap <leader>cw bye
+
+" Paste on next line
+nnoremap <leader>pn :pu<CR>
+
+" Delete without putting into buffer
+nnoremap <leader>d "_d
+vnoremap <leader>d "_d
+nnoremap <leader>ld "_dd
+vnoremap <leader>ld "_dd
+
+" You want to be part of the gurus? Time to get in serious stuff and stop using
+" arrow keys.
+noremap <left> <nop>
+noremap <up> <nop>
+noremap <down> <nop>
+noremap <right> <nop>
+inoremap <left> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <right> <nop>
+
+" Seriously, guys. It's not like :W is bound to anything anyway.
+command! W :w
+command! Wq :wq
+
+" Set 5 lines to the cursor - when moving vertically
+set scrolloff=5
+
+" Yank from current cursor position to end of line
+map Y y$
+
+" Searching {{{
+
+    " sane regexes
+    nnoremap / /\v
+    vnoremap / /\v
+
+    set infercase
+    set ignorecase
+    set smartcase
+    set showmatch
+    set gdefault
+    set hlsearch
+    set incsearch
+
+    " clear search matching
+    noremap <leader>c :noh<cr>:call clearmatches()<cr>
+
+    " Don't jump when using * for search
+    nnoremap * *<c-o>
+
+    " Keep search matches in the middle of the window.
+    nnoremap n nzzzv
+    nnoremap N Nzzzv
+
+    " Same when jumping around
+    nnoremap g; g;zz
+    nnoremap g, g,zz
+
+    " Open a Quickfix window for the last search.
+    nnoremap <silent> <leader>? :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
+
+    " Highlight word {{{
+
+        nnoremap <silent> <leader>hh :execute 'match InterestingWord1 /\<<c-r><c-w>\>/'<cr>
+        nnoremap <silent> <leader>h1 :execute 'match InterestingWord1 /\<<c-r><c-w>\>/'<cr>
+        nnoremap <silent> <leader>h2 :execute '2match InterestingWord2 /\<<c-r><c-w>\>/'<cr>
+        nnoremap <silent> <leader>h3 :execute '3match InterestingWord3 /\<<c-r><c-w>\>/'<cr>
+
+    " }}
+
+" Treat long lines as break lines (useful when moving around in them)
+map j gj
+map k gk
+
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+" Don't redraw while executing macros (good performance config)
+set lazyredraw
+
+" For regular expressions turn magic on
+set magic
+
+" Sets how many lines of history VIM has to remember
+set history=700
+
+
+" -------- IntellijIdea ----------
+
+" easy window navigation
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-h> <c-w>h
+nnoremap <c-k> <c-w>k
+
+" manage splits as in classic vim
+nnoremap <leader>sv :action SplitVertically<CR>
+nnoremap <leader>so :action SplitHorizontally<CR>
+nnoremap <leader>w :action NextTab<CR>
+nnoremap <leader>q :action PrevousTab<CR>
+
+" Search and Find
+nnoremap / :action Find<CR>
+nnoremap n :action FindNext<CR>
+nnoremap N :action FindPrevious<CR>
+nnoremap SE :action SearchEverywhere<cr>
+nnoremap U :action FindUsages<cr>
+nnoremap HU :action HighlightUsagesInFile<cr>
+nnoremap F :action RecentFiles<CR>
+
+" Code refactoring
+nnoremap RE :action RenameElement<cr>
+
+" Goto
+nnoremap D :action GotoDeclaration<CR>
+nnoremap TD :action GotoTypeDeclaration<CR>
+nnoremap GTF :action GotoFile<CR>
+nnoremap GTC :action GotoClass<CR>
+nnoremap GTS :action GotoSymbol<CR>
+nnoremap GTT :action GotoTest<cr>
+
+" Close/Reopen tabs
+nnoremap W :action CloseContent<cr>
+nnoremap TT :action ReopenClosedTab<cr>
+
+" Back and Forward
+nnoremap O :action Back<cr>
+nnoremap I :action Forward<cr>
+
+" Debugger
+nnoremap B :action ToggleLineBreakpoint<cr>
+" TODO if needed
+
+set surround

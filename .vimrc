@@ -34,7 +34,7 @@ set clipboard=unnamed
 set foldmethod=indent
 set foldlevel=99
 
-" Enable folding with the spacebar
+" Folding
 nnoremap <leader>f za
 
 " Customize windows spliting
@@ -71,8 +71,8 @@ nnoremap <leader>pn :pu<CR>
 " Delete without putting into buffer
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
-nnoremap <leader>dd "_dd
-vnoremap <leader>dd "_dd
+nnoremap <leader>ld "_dd
+vnoremap <leader>ld "_dd
 
 " You want to be part of the gurus? Time to get in serious stuff and stop using
 " arrow keys.
@@ -253,7 +253,7 @@ nnoremap <leader>p :let @*=expand("%:p:h")<CR>
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-"set textwidth=80
+" set textwidth=80
 set shiftwidth=4
 " Round indent to multiple of 'shiftwidth' for > and < commands
 set shiftround
@@ -265,6 +265,8 @@ set autoindent
 set smartindent
 set fileformat=unix
 set nowrap "Don't Wrap lines (it is stupid)
+set colorcolumn=80
+autocmd ColorScheme * highlight ColorColumn ctermbg=0
 
 " utf8 support
 set encoding=utf-8
