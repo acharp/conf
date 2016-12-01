@@ -49,6 +49,8 @@ export LESS_TERMCAP_us=$(printf '\e[04;36m') # enter underline mode - cyan
 export TERM="screen-256color"
 alias tmux="tmux -2"
 
+# RVM profile
+source ~/.profile
 
 ###### GIT #####
 
@@ -106,3 +108,7 @@ alias psql_redshift="psql -h $REDSHIFT_HOST -U $REDSHIFT_USER -p $REDSHIFT_PORT 
 export AWS_ACCESS_KEY_ID
 export AWS_SECRET_ACCESS_KEY
 export AWS_REGION
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

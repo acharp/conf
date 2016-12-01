@@ -1,6 +1,9 @@
 " Leader key
 let mapleader=" "
 
+" Activate relative line numbers
+set rnu
+
 " Select all
 nnoremap <leader>a <esc>ggVG<CR>
 
@@ -108,7 +111,7 @@ nnoremap <c-k> <c-w>k
 nnoremap <leader>sv :action SplitVertically<CR>
 nnoremap <leader>so :action SplitHorizontally<CR>
 nnoremap <leader>w :action NextTab<CR>
-nnoremap <leader>q :action PrevousTab<CR>
+nnoremap <leader>q :action PreviousTab<CR>
 
 " Search and Find
 nnoremap / :action Find<CR>
@@ -123,8 +126,8 @@ nnoremap F :action RecentFiles<CR>
 nnoremap RE :action RenameElement<cr>
 
 " Goto
-nnoremap D :action GotoDeclaration<CR>
-nnoremap TD :action GotoTypeDeclaration<CR>
+nnoremap TD :action GotoDeclaration<CR>
+nnoremap GTD :action GotoTypeDeclaration<CR>
 nnoremap GTF :action GotoFile<CR>
 nnoremap GTC :action GotoClass<CR>
 nnoremap GTS :action GotoSymbol<CR>
@@ -139,7 +142,7 @@ nnoremap O :action Back<cr>
 nnoremap I :action Forward<cr>
 
 " Debugger
-nnoremap B :action ToggleLineBreakpoint<cr>
+nnoremap TB :action ToggleLineBreakpoint<cr>
 " TODO if needed
 
 set surround
