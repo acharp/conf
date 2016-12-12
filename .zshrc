@@ -170,3 +170,6 @@ export AWS_SECRET_ACCESS_KEY
 export AWS_REGION
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# added by travis gem
+[ -f /Users/Charpi/.travis/travis.sh ] && source /Users/Charpi/.travis/travis.sh

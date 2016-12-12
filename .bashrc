@@ -112,3 +112,6 @@ export AWS_REGION
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# added by travis gem
+[ -f /Users/Charpi/.travis/travis.sh ] && source /Users/Charpi/.travis/travis.sh

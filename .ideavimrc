@@ -56,7 +56,10 @@ map Y y$
     set incsearch
 
     " clear search matching
-    noremap <leader>c :noh<cr>:call clearmatches()<cr>
+    noremap <leader>cl :noh<cr>:call clearmatches()<cr>
+
+    " autocomment java and scala files
+    nnoremap <leader>cm I//<esc>
 
     " Don't jump when using * for search
     nnoremap * *<c-o>

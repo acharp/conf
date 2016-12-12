@@ -68,6 +68,9 @@ nnoremap <leader>cw bye
 " Paste on next line
 nnoremap <leader>pn :pu<CR>
 
+" Refresh file
+nnoremap <leader>rf :edit<CR>
+
 " Delete without putting into buffer
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
@@ -143,7 +146,7 @@ map Y y$
     set incsearch
 
     " clear search matching
-    noremap <leader>c :noh<cr>:call clearmatches()<cr>
+    nnoremap <leader>cl :noh<cr>:call clearmatches()<cr>
 
     " Don't jump when using * for search
     nnoremap * *<c-o>
@@ -244,6 +247,8 @@ map 0 ^
 " Copy to clipboad the absolute path of the directory of the current file
 nnoremap <leader>p :let @*=expand("%:p:h")<CR>
 
+" Autocmd
+:autocmd FileType python nnoremap <buffer> <leader>cm I#<esc>
 
 " ------- CODING LANGUAGES -------
 
@@ -377,10 +382,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 " -------- PLUGINS --------
 
-" Assure proper folding in python code
-Plugin 'tmhedberg/SimpylFold'
-let g:SimpylFold_docstring_preview = 1
-
 " Auto-completion for code all languages
 Plugin 'Valloric/YouCompleteMe'
 let g:ycm_server_python_interpreter = '/usr/local/bin/python2'
@@ -428,9 +429,6 @@ colorscheme default
 
 " GO plugin
 Plugin 'fatih/vim-go'
-
-" Scala plugin
-Plugin 'derekwyatt/vim-scala'
 
 " Displays a sidebar with the structure of tags in the current file
 Plugin 'majutsushi/tagbar'
@@ -503,9 +501,9 @@ nnoremap <leader>bd :BD<CR>
 Plugin 'christoomey/vim-tmux-navigator'
 
 " Git integration in vim
-Plugin 'tpope/vim-fugitive'
-nnoremap <leader>bgh :Gbrowse<CR>
-Plugin 'airblade/vim-gitgutter'
+ Plugin 'tpope/vim-fugitive'
+ nnoremap <leader>bgh :Gbrowse<CR>
+ Plugin 'airblade/vim-gitgutter'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
