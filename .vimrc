@@ -247,8 +247,9 @@ map 0 ^
 " Copy to clipboad the absolute path of the directory of the current file
 nnoremap <leader>p :let @*=expand("%:p:h")<CR>
 
-" Autocmd
-:autocmd FileType python nnoremap <buffer> <leader>cm I#<esc>
+" Insert comments easily
+:autocmd FileType python nnoremap <buffer> <leader>cm I# <esc>
+:autocmd FileType sql nnoremap <buffer> <leader>cm I--<esc>
 
 " ------- CODING LANGUAGES -------
 

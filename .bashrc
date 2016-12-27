@@ -24,18 +24,6 @@ fi
 # now source it
 source "$credfile"
 
-# Make CLI works as Vim => Will work when switching to zsh
-#bindkey -v
-#bindkey -M viins 'jk' vi-cmd-mode
-
-# Make CLI works as Vim => when using bash
-set -o vi
-bind -m vi-command ".":insert-last-argument
-bind -m vi-insert "\C-l.":clear-screen
-bind -m vi-insert "\C-a.":beginning-of-line
-bind -m vi-insert "\C-e.":end-of-line
-bind -m vi-insert "\C-w.":backward-kill-word
-
 # Colour man pages
 export LESS_TERMCAP_mb=$(printf '\e[01;31m') # enter blinking mode - red
 export LESS_TERMCAP_md=$(printf '\e[01;35m') # enter double-bright mode - bold, magenta
