@@ -7,7 +7,7 @@ export EDITOR=/usr/bin/vim
 export CLICOLOR="screen-256color"
 
 alias ..="cd .."
-alias la="ls -a"
+alias la="ls -A"
 
 # Fix aws cli problem on OS X
 export LC_ALL=en_US.UTF-8
@@ -40,6 +40,7 @@ alias tmux="tmux -2"
 # RVM profile
 source ~/.profile
 
+
 ###### GIT #####
 
 source ~/conf/git-completion.bash
@@ -59,6 +60,10 @@ export PS1="$purple\u$green\$(__git_ps1)$blue \W $ $reset"
 alias gitstom="git checkout master"
 alias gitnb="git pull origin master; git checkout -b $1"
 alias gitsm="git add .; git commit -m \"#Squash me\""
+alias gitlg="git lg1"
+alias gitlg1="git lg1"
+alias gitlg2="git lg2"
+alias gitlg3="git lg3"
 
 
 ##### PYENV  ######

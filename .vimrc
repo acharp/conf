@@ -76,6 +76,8 @@ nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 nnoremap <leader>ld "_dd
 vnoremap <leader>ld "_dd
+nnoremap <leader>D "_D
+vnoremap <leader>D "_D
 
 " You want to be part of the gurus? Time to get in serious stuff and stop using
 " arrow keys.
