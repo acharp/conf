@@ -19,6 +19,8 @@ nnoremap <leader>d "_d
 vnoremap <leader>d "_d
 nnoremap <leader>ld "_dd
 vnoremap <leader>ld "_dd
+nnoremap <leader>D "_D
+vnoremap <leader>D "_D
 
 " You want to be part of the gurus? Time to get in serious stuff and stop using
 " arrow keys.
@@ -115,6 +117,10 @@ nnoremap <leader>sv :action SplitVertically<CR>
 nnoremap <leader>so :action SplitHorizontally<CR>
 nnoremap <leader>w :action NextTab<CR>
 nnoremap <leader>q :action PreviousTab<CR>
+
+" fold and unfold blocks of code
+nnoremap <leader>fc :action CollapseRegionRecursively<CR>
+nnoremap <leader>fo :action ExpandRegionRecursively<CR>
 
 " Search and Find
 nnoremap / :action Find<CR>
