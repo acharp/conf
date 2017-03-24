@@ -106,7 +106,7 @@ func! DeleteTrailingWS()
   %s/\s\+$//ge
   exe "normal `z"
 endfunc
-autocmd BufWrite * :call DeleteTrailingWS()
+autocmd BufWrite *.py,*.js,*.j2,*.sh,*.sql :call DeleteTrailingWS()
 " Delete trailing whitespaces manually
 nnoremap <silent> <Leader>bs :call DeleteTrailingWS()<CR>
 
