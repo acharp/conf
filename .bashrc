@@ -6,6 +6,8 @@ export EDITOR=/usr/bin/vim
 
 export CLICOLOR="screen-256color"
 
+export PATH="$PATH:$HOME/bin"
+
 alias ..="cd .."
 alias la="ls -A"
 
@@ -37,9 +39,16 @@ export LESS_TERMCAP_us=$(printf '\e[04;36m') # enter underline mode - cyan
 export TERM="screen-256color"
 alias tmux="tmux -2"
 
+# bash autocompletion
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+. $(brew --prefix)/etc/bash_completion
+fi
+
 # RVM profile
 source ~/.profile
 
+# thefuck command correction
+eval $(thefuck --alias)
 
 ###### GIT #####
 
@@ -64,7 +73,10 @@ alias gitlg="git lg1"
 alias gitlg1="git lg1"
 alias gitlg2="git lg2"
 alias gitlg3="git lg3"
-
+clone_from_github () {
+    git clone https://github.com/$1/$2 ${3:-$2}
+}
+alias gitclo="clone_from_github"
 
 ##### PYENV  ######
 
