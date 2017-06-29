@@ -10,6 +10,8 @@ export PATH="$PATH:$HOME/bin"
 
 alias ..="cd .."
 alias la="ls -A"
+alias g="git"
+alias v="vim"
 
 # Fix aws cli problem on OS X
 export LC_ALL=en_US.UTF-8

@@ -290,7 +290,7 @@ if 'VIRTUAL_ENV' in os.environ:
 EOF
 
 " Insert import pdb; pdb.set_trace()
-nnoremap <leader>pdb iimport pdb<CR>pdb.set_trace()<esc>
+nnoremap <leader>pdb i<CR>import pdb<CR>pdb.set_trace()<esc>
 
 
 " __Scala__
@@ -495,6 +495,10 @@ nnoremap <F5> :GundoToggle<CR>
 " Highlighting for jinja templates
 Plugin 'mitsuhiko/vim-jinja'
 au BufNewFile,BufRead *.j2,*.html,*.htm,*.shtml,*.stm set ft=jinja
+
+" Highlighting for groovy files (and jenkinsfiles)
+" au BufNewFile,BufRead *.groovy,Jenkinsfile setf groovy
+" doesn't work so well for jenkinsfiles...
 
 " Killing buffers in a better way
 Plugin 'qpkorr/vim-bufkill'
