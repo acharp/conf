@@ -290,7 +290,7 @@ if 'VIRTUAL_ENV' in os.environ:
 EOF
 
 " Insert import pdb; pdb.set_trace()
-nnoremap <leader>pdb i<CR>import pdb<CR>pdb.set_trace()<esc>
+nnoremap <leader>pdb a<CR>import pdb<CR>pdb.set_trace()<esc>
 
 
 " __Scala__
