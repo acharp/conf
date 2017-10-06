@@ -102,13 +102,23 @@ export GOROOT="/usr/local/opt/go/libexec"
 export PATH="$PATH:$GOROOT/bin"
 
 
-#### REDSHIFT ACCESS #####
+#### OLD REDSHIFT ACCESS #####
+export OLD_REDSHIFT_PWD  #useless
+export OLD_REDSHIFT_HOST
+export OLD_REDSHIFT_USER
+export OLD_REDSHIFT_PORT
+export OLD_REDSHIFT_DB
+alias psql_redshift="psql -h $OLD_REDSHIFT_HOST -U $OLD_REDSHIFT_USER -p $OLD_REDSHIFT_PORT -d $OLD_REDSHIFT_DB -a"
+
+
+#### LAKE REDSHIFT ACCESS #####
+export REDSHIFT_PWD  #useless
 export PGPASSWORD
 export REDSHIFT_HOST
 export REDSHIFT_USER
 export REDSHIFT_PORT
-export REDSHIFT_SCHEMA
-alias psql_redshift="psql -h $REDSHIFT_HOST -U $REDSHIFT_USER -p $REDSHIFT_PORT -d $REDSHIFT_SCHEMA -a"
+export REDSHIFT_DB
+alias psql_lake="psql -h $REDSHIFT_HOST -U $REDSHIFT_USER -p $REDSHIFT_PORT -d $REDSHIFT_DB -a"
 
 
 #### AWS ACCESS ####
@@ -122,3 +132,8 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # added by travis gem
 [ -f /Users/Charpi/.travis/travis.sh ] && source /Users/Charpi/.travis/travis.sh
+
+# Workaround for Apple having deprecated use of OpenSSL in favor of its own TLS and crypto lib
+export LDFLAGS="-L/usr/local/opt/openssl/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl/include"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
