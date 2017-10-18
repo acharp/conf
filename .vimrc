@@ -389,7 +389,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 let g:ycm_server_python_interpreter = '/usr/local/bin/python2'
 let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <leader>g  :YcmCompleter GoTo<CR>
+map <leader>G  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+map <leader>R  :YcmCompleter GoToReferences<CR>
 
 " Auto-completion for python code, used by YouCompleteMe
 Plugin 'davidhalter/jedi-vim'
