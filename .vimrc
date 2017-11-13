@@ -474,7 +474,7 @@ let g:NERDTreeIndicatorMapCustom = {
 
 " Super serching : search anything from vim
 Plugin 'kien/ctrlp.vim'
-let g:ctrlp_by_filename = 1
+let g:ctrlp_by_filename = 0
 let g:ctrlp_regexp = 1
 
 " Powerline customized status bar
