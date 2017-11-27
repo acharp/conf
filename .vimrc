@@ -6,6 +6,7 @@ let mapleader=" "
 
 " Activate relative line numbers
 set rnu
+set nu
 
 " Switch between relative and absolute line numbers
 function! NumberToggle()
