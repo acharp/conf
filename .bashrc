@@ -97,9 +97,10 @@ export JAVA_HOME="`/usr/libexec/java_home -v 1.8`"
 ##### GO ####
 
 export GOPATH="$HOME/golang"
-export PATH="$PATH:$GOPATH/bin"
 export GOROOT="/usr/local/opt/go/libexec"
-export PATH="$PATH:$GOROOT/bin"
+export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
+
+alias gofhrepo="cd $GOFHREPO"
 
 
 #### OLD REDSHIFT ACCESS #####

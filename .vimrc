@@ -253,6 +253,7 @@ nnoremap <leader>p :let @*=expand("%:p:h")<CR>
 " Insert comments easily
 :autocmd FileType python nnoremap <buffer> <leader>cm I# <esc>
 :autocmd FileType sql nnoremap <buffer> <leader>cm I--<esc>
+:autocmd FileType go nnoremap <buffer> <leader>cm I//<esc>
 
 " ------- CODING LANGUAGES -------
 
@@ -307,7 +308,7 @@ set wildignore+=*/target/*
 
 let g:go_fmt_fail_silently = 1
 let g:go_fmt_command = "gofmt" "Explicited the formater plugin (gofmt, goimports, goreturn...)
-let g:go_fmt_autosave = 0 "Disable auto fmt on save
+let g:go_fmt_autosave = 1 "Set to 0 to disable auto fmt on save
 let g:go_play_open_browser = 0 "Disable opening browser after posting your snippet to play.golang.org
 let g:go_list_type = "quickfix" "Outputs of build and test works well with syntastic
 
@@ -322,7 +323,7 @@ au FileType go nmap <Leader>gd <Plug>(go-doc)
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 
 " Open the Godoc in browser
-au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+au FileType go nmap <Leader>gB <Plug>(go-doc-browser)
 
 " Run/build/test/coverage
 au FileType go nmap <leader>gr <Plug>(go-run)
@@ -405,7 +406,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 " Control manually syntastic checking or not
