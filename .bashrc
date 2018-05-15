@@ -13,6 +13,8 @@ alias la="ls -A"
 alias g="git"
 alias v="vim"
 
+alias awspint="export AWS_PROFILE=fh-pint && export AWS_REGION=eu-west-1" 
+
 # Fix aws cli problem on OS X
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -79,6 +81,11 @@ clone_from_github () {
     git clone https://github.com/$1/$2 ${3:-$2}
 }
 alias gitclo="clone_from_github"
+
+#s3curl
+alias s3curl="~/bin/s3curl.pl"
+# example to display portion of a file:
+# s3curl --id pint -- -s -H "Range: bytes=0-20000"  http://fh-provider-prod.s3.amazonaws.com/hotel/json/regular/provider_partition=ean/date_partition=2018-05-14-05-02-46/data.json.gz | gzip -d
 
 ##### PYENV  ######
 

@@ -72,6 +72,13 @@ nnoremap <leader>pn :pu<CR>
 " Refresh file
 nnoremap <leader>rf :edit<CR>
 
+" Search recursively through all files from opening directory
+" Search all files
+noremap <leader>sa <esc>:grep -nr '
+" Search the specified suffix (add your suffix in include after *.)
+noremap <leader>sf <esc>:grep -nr --include='*.
+" Default search is for regex, use -nrf if you want to match exact strings
+
 " Delete without putting into buffer
 nnoremap <leader>d "_d
 vnoremap <leader>d "_d
@@ -254,6 +261,10 @@ nnoremap <leader>p :let @*=expand("%:p:h")<CR>
 :autocmd FileType python nnoremap <buffer> <leader>cm I# <esc>
 :autocmd FileType sql nnoremap <buffer> <leader>cm I--<esc>
 :autocmd FileType go nnoremap <buffer> <leader>cm I//<esc>
+" Delete comments easily
+:autocmd FileType python nnoremap <buffer> <leader>uc ^2x
+:autocmd FileType sql nnoremap <buffer> <leader>uc ^2x
+:autocmd FileType go nnoremap <buffer> <leader>uc ^2x
 
 " ------- CODING LANGUAGES -------
 
@@ -307,23 +318,26 @@ set wildignore+=*/target/*
 " __GO__
 
 let g:go_fmt_fail_silently = 1
-let g:go_fmt_command = "gofmt" "Explicited the formater plugin (gofmt, goimports, goreturn...)
+"Explicit the formater plugin (gofmt, goimports, goreturn...)
+"goimports run both gofmt + automatic importing
+let g:go_fmt_command = "goimports" 
 let g:go_fmt_autosave = 1 "Set to 0 to disable auto fmt on save
 let g:go_play_open_browser = 0 "Disable opening browser after posting your snippet to play.golang.org
 let g:go_list_type = "quickfix" "Outputs of build and test works well with syntastic
 
-" Show a list of interfaces which is implemented by the type under your cursor
+" Show a list of interfaces which are implemented by the type under your cursor
 au FileType go nmap <Leader>gm <Plug>(go-implements)
-
 " Show type info for the word under your cursor
 au FileType go nmap <Leader>gi <Plug>(go-info)
 
 " Open the relevant Godoc for the word under the cursor
 au FileType go nmap <Leader>gd <Plug>(go-doc)
-au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-
 " Open the Godoc in browser
 au FileType go nmap <Leader>gB <Plug>(go-doc-browser)
+
+" Vet and Lint
+au FileType go nmap <Leader>gv <Plug>(go-vet)
+au FileType go nmap <Leader>gl <Plug>(go-lint)
 
 " Run/build/test/coverage
 au FileType go nmap <leader>gr <Plug>(go-run)
@@ -389,7 +403,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Auto-completion for code all languages
 Plugin 'Valloric/YouCompleteMe'
-let g:ycm_server_python_interpreter = '/usr/local/bin/python2'
+let g:ycm_server_python_interpreter = '/Users/Charpi/.pyenv/versions/3.5.2/bin/python3.5'
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoTo<CR>
 map <leader>G  :YcmCompleter GoToDefinitionElseDeclaration<CR>
