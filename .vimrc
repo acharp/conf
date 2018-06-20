@@ -345,6 +345,10 @@ au FileType go nmap <leader>gb <Plug>(go-build)
 au FileType go nmap <leader>gt <Plug>(go-test)
 au FileType go nmap <leader>gc <Plug>(go-coverage)
 
+" Insert the error check pattern
+au FileType go nmap <leader>gei oif err != nil {<CR>return<CR>}<CR><esc>
+au FileType go imap <leader>gei <CR>if err != nil {<CR>return<CR>}<CR>
+
 " By default syntax-highlighting for Functions, Methods and Structs is disabled.
 " Let's enable them!
 let g:go_highlight_functions = 1

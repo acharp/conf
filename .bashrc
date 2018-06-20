@@ -15,6 +15,9 @@ alias v="vim"
 
 alias awspint="export AWS_PROFILE=fh-pint && export AWS_REGION=eu-west-1" 
 
+# you can run it in a daily cron job
+alias docker-remove-images-older-than-3-days='docker image prune -a --filter "until=72h"'
+
 # Fix aws cli problem on OS X
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
