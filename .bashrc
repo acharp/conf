@@ -12,8 +12,11 @@ alias ..="cd .."
 alias la="ls -A"
 alias g="git"
 alias v="vim"
+alias s3ls="aws s3 ls --recursive --human-readable"
 
+alias simika="echo \;\) cartouche moi"
 alias awspint="export AWS_PROFILE=fh-pint && export AWS_REGION=eu-west-1" 
+alias awslabrador="export AWS_PROFILE=fh-labrador && export AWS_REGION=eu-west-1" 
 
 # you can run it in a daily cron job
 alias docker-remove-images-older-than-3-days='docker image prune -a --filter "until=72h"'

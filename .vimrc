@@ -75,9 +75,13 @@ nnoremap <leader>rf :edit<CR>
 " Search recursively through all files from opening directory
 " Search all files
 noremap <leader>sa <esc>:grep -nr '
-" Search the specified suffix (add your suffix in include after *.)
+" Search the specified filename suffix (add your suffix in include after *.)
 noremap <leader>sf <esc>:grep -nr --include='*.
-" Default search is for regex, use -nrf if you want to match exact strings
+" Default filename search is for regex, use -nrf if you want to match exact filename strings
+
+" Search and replace in several files recursively
+noremap <leader>r1 <esc>:args `grep -r -l '
+noremap <leader>r2 <esc>:argdo %s/
 
 " Delete without putting into buffer
 nnoremap <leader>d "_d
@@ -151,7 +155,7 @@ map Y y$
     set ignorecase
     set smartcase
     set showmatch
-    set gdefault
+    " set gdefault
     set hlsearch
     set incsearch
 
