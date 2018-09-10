@@ -453,8 +453,8 @@ set background=dark
 let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 " colorscheme solarized
-" Solarized-dark works but I prefer iTerm2 Afterglow theme
-colorscheme default
+" Solarized-dark works but I prefer delek
+colorscheme delek
 
 " GO plugin
 Plugin 'fatih/vim-go'
@@ -498,7 +498,7 @@ let g:NERDTreeIndicatorMapCustom = {
 
 " Super serching : search anything from vim
 Plugin 'kien/ctrlp.vim'
-let g:ctrlp_by_filename = 0
+let g:ctrlp_by_filename = 1
 let g:ctrlp_regexp = 1
 
 " Powerline customized status bar

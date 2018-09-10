@@ -114,6 +114,7 @@ export GOROOT="/usr/local/opt/go/libexec"
 export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
 
 alias gofhrepo="cd $GOFHREPO"
+alias goerr="errcheck -blank ./..."
 
 
 #### OLD REDSHIFT ACCESS #####
