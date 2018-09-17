@@ -363,6 +363,21 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
+" Check if tagbar is installed under plugins or is directly under rtp
+" this covers pathogen + Vundle/Bundle
+"
+" Also make sure the ctags command exists
+"
+if !executable('ctags')
+  finish
+elseif globpath(&rtp, 'plugin/tagbar.vim') == ""
+  finish
+endif
+
+if !exists("g:go_gotags_bin")
+  let g:go_gotags_bin = "gotags"
+endif
+
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
