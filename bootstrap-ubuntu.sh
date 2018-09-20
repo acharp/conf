@@ -9,7 +9,7 @@ ln -s conf/.bashrc ~/.bash_profile
 ln -s conf/.tmux.conf ~/.tmux.conf
 ln -s conf/.vimrc ~/.vimrc
 ln -s conf/.gitignore_global ~/.gitignore_global
-cp conf/.gitconfig ~/
+ln -s conf/.gitconfig ~/.gitconfig
 
 # Fix tmux
 cat .tmux.conf | grep -v "set-option -g default-command \"reattach-to-user-namespace bash\"" > tmux_tmp
@@ -40,6 +40,10 @@ sudo pip install virtualenv
 sudo apt-get -y remove scala-library scala
 sudo apt-get -y install scala
 sudo apt-get -y install sbt
+
+# Go
+# TODO
+# maybe : https://github.com/canha/golang-tools-install-script
 
 cd ~
 . .bashrc

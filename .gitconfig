@@ -1,3 +1,5 @@
+[include]
+    path = ~/.gitconfig.local
 [core]
 	editor = vim
     excludesfile = ~/.gitignore_global
@@ -8,13 +10,10 @@
 [merge]
 	conflictstyle = diff3
 	tool = vimdiff
-[user]
-	name = acharp
-	email = arnaudcharpentier91@gmail.com
-[credential]
-	helper = osxkeychain
+[fetch]
+	prune = true
 [diff]
-	tool = vimdiff
+    tool = vimdiff
 [mergetool]
 	prompt = false
 [alias]
