@@ -328,26 +328,28 @@ let g:go_fmt_command = "goimports"
 let g:go_fmt_autosave = 1 "Set to 0 to disable auto fmt on save
 let g:go_play_open_browser = 0 "Disable opening browser after posting your snippet to play.golang.org
 let g:go_list_type = "quickfix" "Outputs of build and test works well with syntastic
+let g:go_info_mode = "guru" "gocode or guru. guru is slower but more accurate
 
-" Show a list of interfaces which are implemented by the type under your cursor
-au FileType go nmap <Leader>gm <Plug>(go-implements)
+" Show which interfaces the type under the cursor implements. Or, if the type under the cursor is an interface, 
+" show which types in the current project implement it
+au FileType go nmap <Leader>gm :GoImplements<CR>
 " Show type info for the word under your cursor
-au FileType go nmap <Leader>gi <Plug>(go-info)
+au FileType go nmap <Leader>gi :GoInfo<CR>
 
-" Open the relevant Godoc for the word under the cursor
-au FileType go nmap <Leader>gd <Plug>(go-doc)
-" Open the Godoc in browser
-au FileType go nmap <Leader>gB <Plug>(go-doc-browser)
+" Open the relevant Godoc for the word under the cursor. Doesn't really work.
+au FileType go nmap <Leader>gd :GoDoc<CR>
+" Open the Godoc in browser. Doesn't really work.
+au FileType go nmap <Leader>gb :GoDocBrowser<CR>
 
 " Vet and Lint
-au FileType go nmap <Leader>gv <Plug>(go-vet)
-au FileType go nmap <Leader>gl <Plug>(go-lint)
+au FileType go nmap <Leader>gv :GoVet!<CR>
+au FileType go nmap <Leader>gl :GoLint<CR>
 
 " Run/build/test/coverage
-au FileType go nmap <leader>gr <Plug>(go-run)
-au FileType go nmap <leader>gb <Plug>(go-build)
-au FileType go nmap <leader>gt <Plug>(go-test)
-au FileType go nmap <leader>gc <Plug>(go-coverage)
+au FileType go nmap <leader>gr :GoRun!<CR>
+au FileType go nmap <leader>gB :GoBuild!<CR>
+au FileType go nmap <leader>gt :GoTest!<CR>
+au FileType go nmap <leader>gc :GoCoverage!<CR>
 
 " Insert the error check pattern
 au FileType go nmap <leader>gei oif err != nil {<CR>return<CR>}<CR><esc>
@@ -544,6 +546,10 @@ au BufNewFile,BufRead *.j2,*.html,*.htm,*.shtml,*.stm set ft=jinja
 " Killing buffers in a better way
 Plugin 'qpkorr/vim-bufkill'
 nnoremap <leader>bd :BD<CR>
+
+" Close all buffers except buffer in current window.
+Plugin 'Asheq/close-buffers.vim'
+nnoremap <leader>bad :CloseOtherBuffers<CR>
 
 " Tmux-Vim navigation
 Plugin 'christoomey/vim-tmux-navigator'
