@@ -262,13 +262,13 @@ map 0 ^
 nnoremap <leader>p :let @*=expand("%:p:h")<CR>
 
 " Insert comments easily
-:autocmd FileType python nnoremap <buffer> <leader>cm I# <esc>
-:autocmd FileType sql nnoremap <buffer> <leader>cm I--<esc>
-:autocmd FileType go nnoremap <buffer> <leader>cm I//<esc>
+":autocmd FileType python nnoremap <buffer> <leader>cm I# <esc>
+":autocmd FileType sql nnoremap <buffer> <leader>cm I--<esc>
+":autocmd FileType go nnoremap <buffer> <leader>cm I//<esc>
 " Delete comments easily
-:autocmd FileType python nnoremap <buffer> <leader>uc ^2x
-:autocmd FileType sql nnoremap <buffer> <leader>uc ^2x
-:autocmd FileType go nnoremap <buffer> <leader>uc ^2x
+":autocmd FileType python nnoremap <buffer> <leader>uc ^2x
+":autocmd FileType sql nnoremap <buffer> <leader>uc ^2x
+":autocmd FileType go nnoremap <buffer> <leader>uc ^2x
 
 " ------- CODING LANGUAGES -------
 
@@ -336,9 +336,9 @@ au FileType go nmap <Leader>gm :GoImplements<CR>
 " Show type info for the word under your cursor
 au FileType go nmap <Leader>gi :GoInfo<CR>
 
-" Open the relevant Godoc for the word under the cursor. Doesn't really work.
+" Open the relevant Godoc for the word under the cursor
 au FileType go nmap <Leader>gd :GoDoc<CR>
-" Open the Godoc in browser. Doesn't really work.
+" Open the Godoc in browser
 au FileType go nmap <Leader>gb :GoDocBrowser<CR>
 
 " Vet and Lint
@@ -498,6 +498,35 @@ Plugin 'tpope/vim-markdown'
 
 " Make surrounding easier
 Plugin 'tpope/vim-surround'
+
+" Better and easier commenting
+Plugin 'scrooloose/nerdcommenter'
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
+
+" Multiple cursors selection. Sublime text stile
+Plugin 'terryma/vim-multiple-cursors'
+" Disable default mapping
+let g:multi_cursor_use_default_mapping=0
+" Create my mapping
+let g:multi_cursor_start_word_key      = '<C-m>'
+let g:multi_cursor_select_all_word_key = '<S-m>'
+let g:multi_cursor_start_key           = 'g<C-m>'
+let g:multi_cursor_select_all_key      = 'g<S-m>'
+let g:multi_cursor_next_key            = '<C-n>'
+let g:multi_cursor_prev_key            = '<C-p>'
+let g:multi_cursor_skip_key            = '<C-x>'
+let g:multi_cursor_quit_key            = '<Esc>'
 
 " Add git features to nerdtree
 Plugin 'Xuyuanp/nerdtree-git-plugin'
