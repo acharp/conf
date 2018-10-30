@@ -18,6 +18,10 @@ function! NumberToggle()
 endfunc
 nnoremap <leader>nn :call NumberToggle()<cr>
 
+" Set python paths for neovim
+let g:python_host_prog = '/Users/Charpi/.config/neovim_python_paths/neovim2/bin/python'
+let g:python3_host_prog = '/Users/Charpi/.config/neovim_python_paths/neovim3/bin/python'
+
 " Launch pathogen
 execute pathogen#infect()
 
@@ -513,16 +517,25 @@ let g:NERDCommentEmptyLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
+" Disable default mapping because was overlapping with other shortcuts
+let g:NERDCreateDefaultMappings = 0
+" And just enable the few commands I use:
+" Comment
+map <leader>cc <plug>NERDCommenterComment
+" Uncomment
+map <leader>cu <plug>NERDCommenterUncomment
+" Invert comments
+map <leader>ci <plug>NERDCommenterInvert
 
 " Multiple cursors selection. Sublime text stile
 Plugin 'terryma/vim-multiple-cursors'
 " Disable default mapping
 let g:multi_cursor_use_default_mapping=0
 " Create my mapping
-let g:multi_cursor_start_word_key      = '<C-m>'
-let g:multi_cursor_select_all_word_key = '<S-m>'
-let g:multi_cursor_start_key           = 'g<C-m>'
-let g:multi_cursor_select_all_key      = 'g<S-m>'
+let g:multi_cursor_start_word_key      = '<C-c>'
+let g:multi_cursor_select_all_word_key = '<S-c>'
+let g:multi_cursor_start_key           = 'g<C-c>'
+let g:multi_cursor_select_all_key      = 'g<S-c>'
 let g:multi_cursor_next_key            = '<C-n>'
 let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
