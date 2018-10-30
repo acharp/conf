@@ -560,15 +560,12 @@ Plugin 'kien/ctrlp.vim'
 let g:ctrlp_by_filename = 1
 let g:ctrlp_regexp = 1
 
-" Powerline customized status bar
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-set guifont=Inconsolata\ for\ Powerline:h15
-let g:Powerline_symbols = 'fancy'
-set encoding=utf-8
-set t_Co=256
-set fillchars+=stl:\ ,stlnc:\
-set term=screen-256color
-set termencoding=utf-8
+" Airline status bar
+Plugin 'vim-airline/vim-airline'
+let g:airline_powerline_fonts = 1
+" Airline themes
+Plugin 'vim-airline/vim-airline-themes'
+let g:airline_theme='ubaryd'
 
 " Working with CSV files effectively
 Plugin 'chrisbra/csv.vim'
