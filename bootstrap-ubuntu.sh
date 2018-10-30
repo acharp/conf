@@ -36,6 +36,14 @@ echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
 echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 sudo pip install virtualenv
 
+# Install neovim
+sudo add-apt-repository ppa:neovim-ppa/unstable
+sudo apt-get update
+sudo apt-get install neovim
+mkdir ~/.config/nvim/autoload ~/.config/nvim/bundle
+ln -s ~/.vim ~/.config/nvim
+ln -s ~/.vimrc ~/.config/nvim/init.vim
+
 # Scala and sbt
 sudo apt-get -y remove scala-library scala
 sudo apt-get -y install scala

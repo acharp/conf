@@ -1,0 +1,29 @@
+Choose a directory that you like to do all that. This is where your neovim python installation will live.
+E.g. ~/.config/neovim_python_paths/
+
+pyenv install 2.7.11
+pyenv install 3.6.5
+
+pyenv global 2.7.11
+pip install virtualenv
+virtualenv neovim2
+pyenv global 3.6.5
+pip install virtualenv
+virtualenv neovim3
+
+. ./neovim2/bin/activate
+pip install neovim
+which python  # Note the path
+deactivate
+
+. ./neovim3/bin/activate
+pip install neovim
+which python  # Note the path
+deactivate
+
+
+# And then add to the .nvim/init.vim file:
+let g:python_host_prog = '/full/path/to/neovim2/bin/python'
+                         '/Users/Charpi/.config/neovim_python_paths/neovim2/bin/python'
+let g:python3_host_prog = '/full/path/to/neovim3/bin/python'
+                          '/Users/Charpi/.config/neovim_python_paths/neovim3/bin/python'
