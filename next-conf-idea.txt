@@ -3,4 +3,4 @@ iterm2 + zsh/ohmyzsh + tmux for the terminal
 Microsoft VSCode (or JetBrains IntellijIDEA) as IDE for all languages.
     with a good vim keys binding
     with a one liner to launch it from the cli (on opening a file)
-neovim with simple config as text editor. (+ sublime for interp files or huge test files)
+neovim with extremely simple config as text editor. (+ sublime for interp files)

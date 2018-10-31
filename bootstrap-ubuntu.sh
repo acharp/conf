@@ -52,6 +52,8 @@ sudo apt-get -y install sbt
 # Go
 # TODO
 # maybe : https://github.com/canha/golang-tools-install-script
+# get go LSP server
+go get -u github.com/sourcegraph/go-langserver
 
 cd ~
 . .bashrc

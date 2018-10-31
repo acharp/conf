@@ -106,16 +106,6 @@ inoremap <up> <nop>
 inoremap <down> <nop>
 inoremap <right> <nop>
 
-" highlight trailing space
-" Doesn't work as expected. Syntax highlighting + delete trailing white space
-" on save are enough.
-"highlight ExtraWhitespace ctermbg=red guibg=red
-"match ExtraWhitespace /\s\+$/
-"autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-"autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-"autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-"autocmd BufWinLeave * call clearmatches()
-
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
 func! DeleteTrailingWS()
   exe "normal mz"
@@ -430,42 +420,32 @@ Plugin 'VundleVim/Vundle.vim'
 
 " -------- PLUGINS --------
 
-" Auto-completion for code all languages
-Plugin 'Valloric/YouCompleteMe'
-let g:ycm_server_python_interpreter = '/Users/Charpi/.pyenv/versions/3.5.2/bin/python3.5'
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoTo<CR>
-map <leader>G  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-map <leader>R  :YcmCompleter GoToReferences<CR>
-
-" Auto-completion for python code, used by YouCompleteMe
-Plugin 'davidhalter/jedi-vim'
-
-" Syntax checking with syntastic
-Plugin 'scrooloose/syntastic'
-" Basic syntastic config
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_python_exec = '/usr/local/bin/python3'
-" Control manually syntastic checking or not
-nnoremap <leader>syo :SyntasticToggleMode<CR>
-nnoremap <leader>syc :SyntasticCheck<CR>
-" Choose the python checkers to use. Default flake8, uncomment to change.
-"let g:syntastic_python_checkers = ['pydocstyle']
-" Activate python highlighting
-"let python_highlight_all=1
-syntax on
-" Close and display syntax checking window
-nnoremap <leader><Down> :lclose<CR>
-nnoremap <leader><Up> :Errors<CR>
-
-" PEP8 checking
-Plugin 'nvie/vim-flake8'
+" Autocompletion and syntax highlighting with Ale
+" Enable completion where available.
+" This setting must be set before ALE is loaded.
+let g:ale_completion_enabled = 1
+" LSP setup for different languages
+let g:ale_go_langserver_executable = '/Users/Charpi/golang/bin/go-langserver'
+" let g:ale_go_langserver_executable = $GOPATH + '/bin/go-langserver'
+Plugin 'w0rp/ale'
+" Disable inline code highlights
+let g:ale_set_highlights = 0
+" Lint only on saving file, not at every change
+let g:ale_lint_on_text_changed = 'never'
+" Don't lint on opening the file
+let g:ale_lint_on_enter = 0
+" Integrate ale inside airline
+let g:airline#extensions#ale#enabled = 1
+" Display window with list of errors
+let g:ale_open_list = 1
+let g:ale_list_window_size = 3 " Default 10
+" Navigate between errors
+" nmap <leader>pe <Plug>(ale_previous_wrap)
+nmap <leader>ne <Plug>(ale_next_wrap)
+" Goto, find references, manually lint
+map <leader>g  :ALEGoToDefinition<CR>
+map <leader>re  :ALEFindReferences<CR>
+map <leader>li :ALELint<CR>
 
 " Color schemes
 Plugin 'altercation/vim-colors-solarized'
@@ -496,9 +476,6 @@ map <C-t> :NERDTreeFind<cr>
 
 " Make nerdtree well integrated with tabs
 Plugin 'jistr/vim-nerdtree-tabs'
-
-" Syntax highlighting for markdown files
-Plugin 'tpope/vim-markdown'
 
 " Make surrounding easier
 Plugin 'tpope/vim-surround'
