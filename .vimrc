@@ -421,12 +421,9 @@ Plugin 'VundleVim/Vundle.vim'
 " -------- PLUGINS --------
 
 " Autocompletion and syntax highlighting with Ale
-" Enable completion where available.
-" This setting must be set before ALE is loaded.
-let g:ale_completion_enabled = 1
-" LSP setup for different languages
-let g:ale_go_langserver_executable = '/Users/Charpi/golang/bin/go-langserver'
-" let g:ale_go_langserver_executable = $GOPATH + '/bin/go-langserver'
+" Enable completion where available.  This setting must be set before ALE is loaded.
+" Disabled because too slow and disturbing.
+let g:ale_completion_enabled = 0
 Plugin 'w0rp/ale'
 " Disable inline code highlights
 let g:ale_set_highlights = 0
@@ -446,6 +443,19 @@ nmap <leader>ne <Plug>(ale_next_wrap)
 map <leader>g  :ALEGoToDefinition<CR>
 map <leader>re  :ALEFindReferences<CR>
 map <leader>li :ALELint<CR>
+" LSP setup for different languages
+let g:ale_go_langserver_executable = '/Users/Charpi/golang/bin/go-langserver'
+let g:ale_python_pyls_executable = 'pyls'
+" Choose which linters we want to run
+let g:ale_linters = {
+\   'python': ['flake8', 'mypy', 'pylint', 'pyls'],
+\   'go': ['gofmt', 'golint', 'govet', 'golangserver'],
+\}
+" Choose which fixers to use
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {
+\   'python': ['yapf'],
+\}
 
 " Color schemes
 Plugin 'altercation/vim-colors-solarized'
