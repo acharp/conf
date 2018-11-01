@@ -11,7 +11,7 @@ export PATH="$PATH:$HOME/bin"
 alias ..="cd .."
 alias la="ls -A"
 alias g="git"
-alias v="vim"
+alias v="nvim"
 alias s3ls="aws s3 ls --recursive --human-readable"
 
 alias awspint="export AWS_PROFILE=fh-pint && export AWS_REGION=eu-west-1" 

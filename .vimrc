@@ -40,7 +40,7 @@ set foldmethod=indent
 set foldlevel=99
 
 " Folding
-nnoremap <leader>f za
+nnoremap <leader>fo za
 
 " Customize windows spliting
 set splitbelow
@@ -423,7 +423,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Autocompletion and syntax highlighting with Ale
 " Enable completion where available.  This setting must be set before ALE is loaded.
 " Disabled because too slow and disturbing.
-let g:ale_completion_enabled = 0
+let g:ale_completion_enabled = 1
 Plugin 'w0rp/ale'
 " Disable inline code highlights
 let g:ale_set_highlights = 0
@@ -445,17 +445,21 @@ map <leader>re  :ALEFindReferences<CR>
 map <leader>li :ALELint<CR>
 " LSP setup for different languages
 let g:ale_go_langserver_executable = '/Users/Charpi/golang/bin/go-langserver'
-let g:ale_python_pyls_executable = 'pyls'
 " Choose which linters we want to run
+" pyls does not work for python and I couldn't find why thus no completion nor
+" goto nor find references features for python...
 let g:ale_linters = {
 \   'python': ['flake8', 'mypy', 'pylint', 'pyls'],
 \   'go': ['gofmt', 'golint', 'govet', 'golangserver'],
 \}
 " Choose which fixers to use
-let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   'python': ['yapf'],
 \}
+" Binding to fixing problems with ALE
+nmap <leader>fi <Plug>(ale_fix)
+" Can also be set on saving but let's see how it works before enabling it
+" g:ale_fix_on_save = 1
 
 " Color schemes
 Plugin 'altercation/vim-colors-solarized'
