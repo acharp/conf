@@ -50,8 +50,9 @@ sudo apt-get -y install scala
 sudo apt-get -y install sbt
 
 # Go
-# TODO
-# maybe : https://github.com/canha/golang-tools-install-script
+# On MacOSX, use brew to install go
+wget https://raw.githubusercontent.com/canha/golang-tools-install-script/master/goinstall.sh
+bash goinstall.sh --64
 # get go LSP server
 go get -u github.com/sourcegraph/go-langserver
 

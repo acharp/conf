@@ -112,7 +112,7 @@ func! DeleteTrailingWS()
   %s/\s\+$//ge
   exe "normal `z"
 endfunc
-autocmd BufWrite *.py,*.js,*.j2,*.sh,*.sql :call DeleteTrailingWS()
+autocmd BufWrite *.py,*.js,*.j2,*.sh,*.sql,*.tf :call DeleteTrailingWS()
 " Delete trailing whitespaces manually
 nnoremap <silent> <Leader>bs :call DeleteTrailingWS()<CR>
 
@@ -436,6 +436,8 @@ let g:airline#extensions#ale#enabled = 1
 " Display window with list of errors
 let g:ale_open_list = 1
 let g:ale_list_window_size = 3 " Default 10
+" Automatically quit the error list window when the current buffer is quit
+autocmd QuitPre * if empty(&bt) | lclose | endif
 " Navigate between errors
 " nmap <leader>pe <Plug>(ale_previous_wrap)
 nmap <leader>ne <Plug>(ale_next_wrap)

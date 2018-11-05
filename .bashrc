@@ -108,6 +108,7 @@ export JAVA_HOME="`/usr/libexec/java_home -v 1.8`"
 
 ##### GO ####
 
+# To switch to "$HOME/go" when new laptop. That's the convention to follow.
 export GOPATH="$HOME/golang"
 export GOROOT="/usr/local/opt/go/libexec"
 export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
