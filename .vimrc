@@ -423,7 +423,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Autocompletion and syntax highlighting with Ale
 " Enable completion where available.  This setting must be set before ALE is loaded.
 " Disabled because too slow and disturbing.
-let g:ale_completion_enabled = 1
+let g:ale_completion_enabled = 0
 Plugin 'w0rp/ale'
 " Disable inline code highlights
 let g:ale_set_highlights = 0
