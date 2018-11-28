@@ -112,7 +112,7 @@ func! DeleteTrailingWS()
   %s/\s\+$//ge
   exe "normal `z"
 endfunc
-autocmd BufWrite *.py,*.js,*.j2,*.sh,*.sql,*.tf :call DeleteTrailingWS()
+autocmd BufWrite *.py,*.js,*.j2,*.sh,*.sql,*.tf,*.txt :call DeleteTrailingWS()
 " Delete trailing whitespaces manually
 nnoremap <silent> <Leader>bs :call DeleteTrailingWS()<CR>
 
@@ -324,8 +324,7 @@ let g:go_play_open_browser = 0 "Disable opening browser after posting your snipp
 let g:go_list_type = "quickfix" "Outputs of build and test works well with syntastic
 let g:go_info_mode = "guru" "gocode or guru. guru is slower but more accurate
 
-" Show which interfaces the type under the cursor implements. Or, if the type under the cursor is an interface, 
-" show which types in the current project implement it
+" Show which interfaces the type under the cursor implements
 au FileType go nmap <Leader>gm :GoImplements<CR>
 " Show type info for the word under your cursor
 au FileType go nmap <Leader>gi :GoInfo<CR>
@@ -348,6 +347,9 @@ au FileType go nmap <leader>gc :GoCoverage!<CR>
 " Insert the error check pattern
 au FileType go nmap <leader>gei oif err != nil {<CR>return<CR>}<CR><esc>
 au FileType go imap <leader>gei <CR>if err != nil {<CR>return<CR>}<CR>
+
+" Better shortcut to trigger auto-completion
+au FileType go inoremap <C-n> <C-x><C-o>
 
 " By default syntax-highlighting for Functions, Methods and Structs is disabled.
 " Let's enable them!
@@ -556,6 +558,12 @@ let g:ctrlp_regexp = 1
 " Airline status bar
 Plugin 'vim-airline/vim-airline'
 let g:airline_powerline_fonts = 1
+" Not enough room in this bar!
+let g:airline#extensions#tagbar#enabled = 0
+let g:airline#extensions#default#layout = [
+    \ [ 'a', 'b', 'c' ],
+    \ [ 'x', 'z', 'error', 'warning' ]
+    \ ]
 " Airline themes
 Plugin 'vim-airline/vim-airline-themes'
 let g:airline_theme='ubaryd'

@@ -16,6 +16,7 @@ alias s3ls="aws s3 ls --recursive --human-readable"
 
 alias awspint="export AWS_PROFILE=fh-pint && export AWS_REGION=eu-west-1" 
 alias awslabrador="export AWS_PROFILE=fh-labrador && export AWS_REGION=eu-west-1" 
+source "$HOME/.meta-envvars.sh"
 
 # you can run it in a daily cron job
 alias docker-remove-images-older-than-3-days='docker image prune -a --filter "until=72h"'
