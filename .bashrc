@@ -129,6 +129,7 @@ alias psql_redshift="psql -h $OLD_REDSHIFT_HOST -U $OLD_REDSHIFT_USER -p $OLD_RE
 
 #### LAKE REDSHIFT ACCESS #####
 export REDSHIFT_PWD  #useless
+export REDSHIFT_PASSWORD  #for PAC env var compatibility
 export PGPASSWORD
 export REDSHIFT_HOST
 export REDSHIFT_USER

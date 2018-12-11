@@ -478,6 +478,13 @@ colorscheme delek
 " GO plugin
 Plugin 'fatih/vim-go'
 
+" Terraform plugin 
+" Doesn't work, needed to clone the repo in ~/.vim/bundle
+Plugin 'hashivim/vim-terraform'
+let g:terraform_align=1
+let g:terraform_fold_sections=1
+let g:terraform_fmt_on_save=1
+
 " Displays a sidebar with the structure of tags in the current file
 Plugin 'majutsushi/tagbar'
 nmap <leader>t :TagbarToggle<CR>
