@@ -35,4 +35,10 @@
 ehthumbs.db
 Thumbs.db
 
+# Python virtualenv
+.venv/
+# VSCode
+.vscode/
+.env
+# local gitconfig
 .gitconfig.local
