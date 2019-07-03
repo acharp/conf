@@ -1,0 +1,248 @@
+{
+    ///// general /////
+
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    "terminal.external.osxExec": "iTerm.app",
+    "scrolloff.alwaysCenter": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.fontSize": 13,
+    // used in combination of Peep extension to reproduce the vim NerdTree shift+i behaviour
+    // for some reasons this needs to be added to any .vscode local workspace as well...
+    "files.exclude": {
+        ".*": true
+    },
+    "window.zoomLevel": 0,
+    "editor.wordWrap": "on",
+    "editor.parameterHints.cycle": true,
+    "files.trimFinalNewlines": true,
+    "window.closeWhenEmpty": true, // does not seem to work :/
+    "search.smartCase": true,
+    "search.useGlobalIgnoreFiles": true,
+    "debug.console.fontSize": 13,
+    "terminal.integrated.fontSize": 13,
+    "terminal.integrated.macOptionClickForcesSelection": true,
+    "editor.minimap.enabled": false,
+
+
+
+    ///// intelliSense /////
+    "editor.tabCompletion": "on",
+    "editor.acceptSuggestionOnEnter": "off",
+
+
+
+    ///// vim /////
+
+    "vim.leader": "<space>",
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    // start a search from the current visual selection by pressing * or #
+    "vim.visualstar": true,
+
+    // just during the setting up phase, to take out later
+    "vim.debug.loggingLevelForConsole": "debug",
+
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+        "before": ["j", "j"],
+        "after": ["<Esc>"]
+        },
+        // dirty hack to use vscode search instead of vim one. Setting this shortcut in normal mode only messed up other modes
+        {
+        "before": ["/"],
+        "after": ["/"]
+        },
+    ],
+    "vim.normalModeKeyBindingsNonRecursive": [
+        // avoid pressing shift to enter commands
+        {
+        "before": [";"],
+        "after": [":"]
+        },
+        // select all
+        {
+        "before": ["<leader>", "a"],
+        "after": ["<esc>","g","g","V","G","<CR>"]
+        },
+        // select word
+        {
+        "before": ["<leader>", "s", "w"],
+        "after": ["b", "v", "e"]
+        },
+        // copy word
+        {
+        "before": ["<leader>", "c", "w"],
+        "after": ["b", "y", "e"]
+        },
+        // paste on next line
+        {
+        "before": ["<leader>", "p", "n"],
+        "after": ["o", "<ESC>", "p"]
+        },
+        // reload file (for when it has been modified outside of vim/vscode)
+        {
+        "before": ["<leader>", "r", "f"],
+        "commands": [":edit"]
+        },
+        // triggers delete without putting in buffer
+        {
+        "before": ["<leader>", "d"],
+        "after": ["\"", "_", "d"]
+        },
+        // delete line without putting in buffer
+        {
+        "before": ["<leader>", "l", "d"],
+        "after": ["\"", "_", "d", "d"]
+        },
+        // delete from cursor until EOL without putting in buffer
+        {
+        "before": ["<leader>", "D"],
+        "after": ["\"", "_", "D"]
+        },
+        // yank from cursor until EOL
+        {
+        "before": ["Y"],
+        "after": ["y", "$"]
+        },
+        // use vscode search instead of vim one
+        {
+        "before": ["/"],
+        "commands": ["actions.find"]
+        },
+        // clear search matching - NotUsed
+        {
+        "before": ["<leader>", "c", "l"],
+        "after": [":", "n", "o", "h", "<CR>"]
+        },
+        // keep search in the middle of the window - NotUsed
+        {
+        "before": ["n"],
+        "after": ["n", "z", "z", "z", "v"]
+        },
+        {
+        "before": ["N"],
+        "after": ["N", "z", "z", "z", "v"]
+        },
+        // remap 0 to first non-blank character
+        {
+        "before": ["0"],
+        "after": ["^"]
+        },
+        // comment line
+        {
+        "before": ["<leader>", "c", "c"],
+        "commands": ["editor.action.addCommentLine"]
+        },
+        // uncomment line
+        {
+        "before": ["<leader>", "c", "u"],
+        "commands": ["editor.action.removeCommentLine"]
+        },
+        // kill current buffer (~= close active window in vscode)
+        {
+        "before": ["<leader>", "b", "d"],
+        "commands": ["workbench.action.closeActiveEditor"]
+        },
+        // kill all buffers except current (~= close active window in vscode)
+        {
+        "before": ["<leader>", "b", "a", "d"],
+        "commands": ["workbench.action.closeOtherEditors"]
+        },
+    ],
+    "vim.visualModeKeyBindingsNonRecursive": [
+        // triggers delete without putting in buffer
+        {
+        "before": ["<leader>", "d"],
+        "after": ["\"", "_", "d"]
+        },
+        // delete line without putting in buffer
+        {
+        "before": ["<leader>", "l", "d"],
+        "after": ["\"", "_", "d", "d"]
+        },
+        // delete from cursor until EOL without putting in buffer
+        {
+        "before": ["<leader>", "D"],
+        "after": ["\"", "_", "D"]
+        },
+        // yank from cursor until EOL
+        {
+        "before": ["Y"],
+        "after": ["y", "$"]
+        },
+        // comment line
+        {
+        "before": ["<leader>", "c", "c"],
+        "commands": ["editor.action.addCommentLine"]
+        },
+        // uncomment line
+        {
+        "before": ["<leader>", "c", "u"],
+        "commands": ["editor.action.removeCommentLine"]
+        },
+        // search current selection
+        {
+        "before": ["?"],
+        "commands": ["actions.findWithSelection"]
+        },
+        // dirty hack to use vscode search instead of vim one. Setting this shortcut in normal mode only messed up other modes
+        {
+        "before": ["/"],
+        "after": ["/"]
+        },
+    ],
+
+
+    // delegate these keys to be handled by vscode
+    "vim.handleKeys": {
+        //"<C-b>": false
+    },
+
+
+
+        ///// golang /////
+
+    // only needed if not opening vscode through "code" cli cmd
+    //"go.gopath": "/Users/charpi/go",
+    //"go.goroot": "/usr/local/opt/go/libexec",
+
+    // enable go language server
+    //"go.useLanguageServer": true,
+
+    // gometalinter may be quite slow, in this case configure some go.lintFlags or use golangci-lint or the default golint
+    "go.lintTool": "gometalinter",
+
+    // If want to use debugging, install delve
+
+
+
+        ///// python /////
+
+    "python.formatting.provider": "yapf",
+    "python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 4, column_limit: 100}"],
+
+    "python.linting.pylintEnabled": false,
+    "python.linting.pylamaEnabled": true,
+    "python.linting.pylamaArgs": ["--ignore=E303,E501,D400"],
+    "python.linting.ignorePatterns": [".vscode/*.py", "**/site-packages/**/*.py", ".env/*.py"],
+
+    // For Intellicode the 3 following lines are needed
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    // Use python language server instead of jedi
+    "python.jediEnabled": false,
+
+    "python.autoComplete.addBrackets": true,
+
+
+
+        ///// SQL /////
+    "pgFormatter.spaces": 4,
+    "[sql]": {
+        "editor.defaultFormatter": "ms-ossdata.vscode-postgresql"
+    },
+
+}
