@@ -1,7 +1,7 @@
 [include]
     path = ~/.gitconfig.local
 [core]
-	editor = vim
+	editor = nvim
     excludesfile = ~/.gitignore_global
 	whitespace = cr-at-eol
 [pull]
