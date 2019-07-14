@@ -153,13 +153,32 @@ export RS_PTEXT_PWD
 export RS_PTEXT_USER
 export RS_PTEXT_PORT
 export RS_PTEXT_DB
+# Open CLI
 alias psql_ptext="PGPASSWORD=$RS_PTEXT_PWD psql -h 127.0.0.1 -U $RS_PTEXT_USER -p $RS_PTEXT_PORT -d $RS_PTEXT_DB -a"
+# Run sql from a file and return result live
+function live_run_ptext() {
+    PGPASSWORD=$RS_PTEXT_PWD psql -h 127.0.0.1 -U $RS_PTEXT_USER -p $RS_PTEXT_PORT -d $RS_PTEXT_DB -a -f $1
+}
+alias lrunptex="live_run_ptext"
+# Run sql from a file and output result to file
+function run_ptext() {
+    PGPASSWORD=$RS_PTEXT_PWD psql -h 127.0.0.1 -U $RS_PTEXT_USER -p $RS_PTEXT_PORT -d $RS_PTEXT_DB -A -F"," -f $1 -o $2.csv
+}
+alias runptex="run_ptext"
 # Pseudo cluster (open ssh tunnel first)
 export RS_PSEUDO_PWD
 export RS_PSEUDO_USER
 export RS_PSEUDO_PORT
 export RS_PSEUDO_DB
 alias psql_pseudo="PGPASSWORD=$RS_PSEUDO_PWD psql -h 127.0.0.1 -U $RS_PSEUDO_USER -p $RS_PSEUDO_PORT -d $RS_PSEUDO_DB -a"
+function live_run_pseudo() {
+    PGPASSWORD=$RS_PSEUDO_PWD psql -h 127.0.0.1 -U $RS_PSEUDO_USER -p $RS_PSEUDO_PORT -d $RS_PSEUDO_DB -a -f $1
+}
+alias lrunpseu="live_run_pseudo"
+function run_pseudo() {
+    PGPASSWORD=$RS_PSEUDO_PWD psql -h 127.0.0.1 -U $RS_PSEUDO_USER -p $RS_PSEUDO_PORT -d $RS_PSEUDO_DB -A -F"," -f $1 -o $2.csv
+}
+alias runpseu="run_pseudo"
 # Snowplow cluster (no need for ssh tunnel):
 export RS_SPLOW_PWD
 export RS_SPLOW_USER
@@ -168,6 +187,14 @@ export RS_SPLOW_HOST
 # Since the snowplow pwd has a backslash we cannot add PGPASSWORD=$RS_SNOWPLOW_PWD in the psql_splow command so we define it as the default PGPASSWORD
 export PGPASSWORD
 alias psql_splow="psql -h $RS_SPLOW_HOST -U $RS_SPLOW_USER -p $RS_SPLOW_PORT -d $RS_SPLOW_DB -a"
+function live_run_splow() {
+    psql -h $RS_SPLOW_HOST -U $RS_SPLOW_USER -p $RS_SPLOW_PORT -d $RS_SPLOW_DB -a -f $1
+}
+alias lrunsplo="live_run_splow"
+function run_splow() {
+    psql -h $RS_SPLOW_HOST -U $RS_SPLOW_USER -p $RS_SPLOW_PORT -d $RS_SPLOW_DB -A -F"," -f $1 -o $2.csv
+}
+alias runsplo="run_splow"
 
 ## kubectl autocompletion ##
 if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
