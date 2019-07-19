@@ -2,11 +2,11 @@
 [
     // make interacting with vscode explorer as close as vim NerdTree as possible
     { "key": "ctrl+n", "command": "workbench.action.toggleSidebarVisibility"},
-    { "key": "ctrl+g", "command": "workbench.view.explorer"},
+    { "key": "ctrl+cmd+h", "command": "workbench.view.explorer"},
     { "key": "ctrl+c", "command": "workbench.files.action.collapseExplorerFolders"},
-    { "key": "enter", "command": "list.collapse", "when": "listFocus && !inputFocus" },
-    { "key": "enter", "command": "list.select", "when": "listFocus && !inputFocus" },
-    { "key": "shift+i", "command": "extension.peepToggle"},
+    { "key": "enter", "command": "list.collapse", "when": "listFocus && !inputFocus"},
+    { "key": "enter", "command": "list.select", "when": "listFocus && !inputFocus"},
+    { "key": "shift+i", "command": "extension.peepToggle", "when": "listFocus && !inputFocus"},
 
     { "key": "cmd+d", "command": "workbench.view.debug" },
     { "key": "cmd+s", "command": "workbench.view.search", "when": "!searchViewletVisible" },
