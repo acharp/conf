@@ -201,3 +201,7 @@ if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
 
 ## wetransfer platform user needed for ssh ##
 export WT_PLATFORM_USER
+
+## mysql client config for live read stat db
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+alias mysql_live="mysql --host=127.0.0.1 --port=3307 -u arnaud -D live -p"
