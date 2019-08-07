@@ -36,3 +36,5 @@
     brd = "! f() { for k in $(git branch $@ | sed 's/^..//; s/ .*//'); do  echo "$(git log -1 --pretty='%Cgreen%ci %Cblue(%cr)%Creset ' $k) $k" ;  done | sort -r; }; f"
     # Get latest commits from master and rebase the current branch on it
     rom = pull --rebase origin master
+[pager]
+	branch = false

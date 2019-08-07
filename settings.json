@@ -244,5 +244,6 @@
     "[sql]": {
         "editor.defaultFormatter": "ms-ossdata.vscode-postgresql"
     },
+    "extensions.ignoreRecommendations": false,
 
 }
