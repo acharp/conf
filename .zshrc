@@ -99,14 +99,15 @@ alias docker-remove-images-older-than-3-days='docker image prune -a --filter "un
 alias s3curl="/usr/local/bin/s3curl.pl"
 # example to display portion of a file:
 # s3curl --id pint -- -s -H "Range: bytes=0-20000"  http://fh-provider-prod.s3.amazonaws.com/hotel/json/regular/provider_partition=ean/date_partition=2018-05-14-05-02-46/data.json.gz | gzip -d
-alias gitlg="git lg1"
-alias gitlg1="git lg1"
-alias gitlg2="git lg2"
-alias gitlg3="git lg3"
+alias glg="git lg"
+alias glg1="git lg1"
+alias glg2="git lg2"
+alias glg3="git lg3"
 clone_from_github () {
     git clone https://github.com/$1/$2 ${3:-$2}
 }
-alias gitclo="clone_from_github"
+alias gclo="clone_from_github"
+alias gsm="git add .; git commit -m \"#Squash me\""
 alias goerr="errcheck -blank ./..."
 
 ## Retrieve sensible credentials ##
