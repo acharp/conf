@@ -39,5 +39,10 @@
         # "pull origin master" fetch the latest changes for origin/master and merge/rebase them into local master. 
         # "--rebase" rebase the current branch onto origin/master which is now at the exact same commit as local master. So it is the same as rebasing on local master.
     rom = pull --rebase origin master
+
+    # Update master from remote origin master without checking out from my current branch. Works only for fast-forward merges (which should always be the case when updating master from origin master).
+    upm = fetch origin master:master
+
+    rbim = rebase -i master
 [pager]
 	branch = false
