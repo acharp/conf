@@ -23,6 +23,7 @@
     "terminal.integrated.macOptionClickForcesSelection": true,
     "editor.minimap.enabled": false,
     "workbench.editor.enablePreview": false,
+    "editor.renderWhitespace": "selection",
 
 
 

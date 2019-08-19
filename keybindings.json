@@ -14,7 +14,7 @@
     // copy absolute path of the current file
     { "key": "ctrl+cmd+p", "command": "copyFilePath" },
     // relative
-    { "key": "shift+cmd+p", "command": "copyRelativeFilePath" },
+    { "key": "alt+cmd+p", "command": "copyRelativeFilePath" },
 
     // format file using the formatter set up
     {"key": "cmd+f", "command": "editor.action.format"},
