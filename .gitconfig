@@ -44,5 +44,6 @@
     upm = fetch origin master:master
 
     rbim = rebase -i master
+    cmp = !git checkout master && git pull origin master
 [pager]
 	branch = false
