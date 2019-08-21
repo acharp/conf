@@ -29,9 +29,6 @@
 
     aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /' | sort
 
-    clinhead = !"git branch --merged | grep -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
-    clinmaster = !"git branch --merged origin/master | grep -v '\\*\\|master\\|develop' | xargs -n 1 git branch -d"
-
     # Andrey good stuff: display and sort all branches chronologically
     brd = "! f() { for k in $(git branch $@ | sed 's/^..//; s/ .*//'); do  echo "$(git log -1 --pretty='%Cgreen%ci %Cblue(%cr)%Creset ' $k) $k" ;  done | sort -r; }; f"
 
