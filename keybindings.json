@@ -4,6 +4,8 @@
     { "key": "ctrl+n", "command": "workbench.action.toggleSidebarVisibility"},
     { "key": "ctrl+cmd+h", "command": "workbench.view.explorer"},
     { "key": "ctrl+c", "command": "workbench.files.action.collapseExplorerFolders"},
+    { "key": "j", "command": "list.focusDown", "when": "listFocus" },
+    { "key": "k", "command": "list.focusUp", "when": "listFocus" },
     { "key": "enter", "command": "list.collapse", "when": "listFocus && !inputFocus"},
     { "key": "enter", "command": "list.select", "when": "listFocus && !inputFocus"},
     { "key": "shift+i", "command": "extension.peepToggle", "when": "listFocus && !inputFocus"},
