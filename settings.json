@@ -3,7 +3,9 @@
 
     "terminal.integrated.shell.osx": "/bin/zsh",
     "terminal.external.osxExec": "iTerm.app",
-    "scrolloff.alwaysCenter": true,
+    "editor.cursorSurroundingLines": 10,
+    // scrolloff.alwaysCenter not compatible with editor.cursorSurroundingLines and mess up the scrolling while in visual mode. Keeeping only cursorSurroundingLines gives decent conf for all modes
+    // "scrolloff.alwaysCenter": true,
     "files.trimTrailingWhitespace": true,
     "editor.fontSize": 13,
     // used in combination of Peep extension to reproduce the vim NerdTree shift+i behaviour
