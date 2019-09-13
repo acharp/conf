@@ -66,6 +66,11 @@
         "before": [";"],
         "after": [":"]
         },
+        // toggle search/replace
+        {
+        "before": ["<leader", "/"],
+        "after": ["editor.action.startFindReplaceAction"]
+        },
         // select all
         {
         "before": ["<leader>", "a"],
