@@ -12,6 +12,7 @@
 
     { "key": "cmd+d", "command": "workbench.view.debug" },
     { "key": "cmd+s", "command": "workbench.view.search", "when": "!searchViewletVisible" },
+    { "key": "ctrl+/", "command": "editor.action.startFindReplaceAction", "when":"editorTextFocus && vim.active && vim.mode == 'Normal'" },
 
     // copy absolute path of the current file
     { "key": "ctrl+cmd+p", "command": "copyFilePath" },
