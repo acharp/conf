@@ -69,6 +69,17 @@ else
   compinit -C -i
 fi
 
+## Measure execution time of the last command run and display it to the right of the prompt ##
+function preexec() {
+  timer=${timer:-$SECONDS}
+}
+function precmd() {
+  if [ $timer ]; then
+    timer_show=$(($SECONDS - $timer))
+    export RPROMPT="%F{cyan}${timer_show}s %{$reset_color%}"
+    unset timer
+  fi
+}
 
 # Run oh my zsh and tune zsh. Any zsh related config has to be written above this line.
 source $ZSH/oh-my-zsh.sh
