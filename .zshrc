@@ -217,3 +217,9 @@ export WT_PLATFORM_USER
 ## mysql client config for live read stat db
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 alias mysql_live="mysql --host=127.0.0.1 --port=3307 -u arnaud -D live -p"
+
+## message bird API keys and phone number ##
+export MBIRD_TEST
+export MBIRD_LIVE_A
+export MBIRD_LIVE_I
+export PHONE_NUMBER
