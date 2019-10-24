@@ -102,7 +102,8 @@ export LANG=en_US.UTF-8
 alias v="nvim"
 alias c="vsc"
 alias cr="vscr"
-alias d="datagrip"
+# colorise cat, remember \cat to bypass the alias
+alias cat="ccat"
 alias s3ls="aws s3 ls --recursive --human-readable"
 # Remove docker images, you can run it in a daily cron job
 alias docker-remove-images-older-than-3-days='docker image prune -a --filter "until=72h"'
