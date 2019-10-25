@@ -3,10 +3,13 @@
 
     "terminal.integrated.shell.osx": "/bin/zsh",
     "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.fontFamily": "Meslo LG M DZ for Powerline",
+    "terminal.integrated.fontSize": 13,
     "editor.cursorSurroundingLines": 10,
     // scrolloff.alwaysCenter not compatible with editor.cursorSurroundingLines and mess up the scrolling while in visual mode. Keeeping only cursorSurroundingLines gives decent conf for all modes
     // "scrolloff.alwaysCenter": true,
     "files.trimTrailingWhitespace": true,
+    "editor.fontFamily": "Menlo",
     "editor.fontSize": 13,
     // used in combination of Peep extension to reproduce the vim NerdTree shift+i behaviour
     // for some reasons this needs to be added to any .vscode local workspace as well...
@@ -21,7 +24,6 @@
     "search.smartCase": true,
     "search.useGlobalIgnoreFiles": true,
     "debug.console.fontSize": 13,
-    "terminal.integrated.fontSize": 13,
     "terminal.integrated.macOptionClickForcesSelection": true,
     "editor.minimap.enabled": false,
     "workbench.editor.enablePreview": false,
