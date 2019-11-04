@@ -22,6 +22,9 @@
     // format file using the formatter set up
     {"key": "cmd+f", "command": "editor.action.format"},
 
+    // toggle wordWrap
+    {"key": "ctrl+w", "command":"editor.action.toggleWordWrap"},
+
     // ctrlP like in vim
     { "key": "ctrl+p", "command": "workbench.action.quickOpen"},
 

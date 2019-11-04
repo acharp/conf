@@ -17,7 +17,7 @@
         ".*": true
     },
     "window.zoomLevel": 0,
-    "editor.wordWrap": "on",
+    "editor.wordWrap": "off",
     "editor.parameterHints.cycle": true,
     "files.trimFinalNewlines": true,
     "window.closeWhenEmpty": true, // does not seem to work :/
