@@ -42,6 +42,7 @@
     { "key": "ctrl+s left", "command": "workbench.action.moveEditorLeftInGroup"},
     { "key": "ctrl+s right", "command": "workbench.action.moveEditorRightInGroup"},
     { "key": "ctrl+s \\", "command": "workbench.action.splitEditor"},
+    { "key": "ctrl+s -", "command": "workbench.action.splitEditorOrthogonal"},
     { "key": "ctrl+h", "command": "workbench.action.focusPreviousGroup"},
     { "key": "ctrl+l", "command": "workbench.action.focusNextGroup"},
 
