@@ -5,9 +5,6 @@
     "terminal.external.osxExec": "iTerm.app",
     "terminal.integrated.fontFamily": "Meslo LG M DZ for Powerline",
     "terminal.integrated.fontSize": 13,
-    "editor.cursorSurroundingLines": 10,
-    // scrolloff.alwaysCenter not compatible with editor.cursorSurroundingLines and mess up the scrolling while in visual mode. Keeeping only cursorSurroundingLines gives decent conf for all modes
-    // "scrolloff.alwaysCenter": true,
     "files.trimTrailingWhitespace": true,
     "editor.fontFamily": "Menlo",
     "editor.fontSize": 13,
