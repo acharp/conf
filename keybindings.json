@@ -45,6 +45,15 @@
     { "key": "ctrl+s -", "command": "workbench.action.splitEditorOrthogonal"},
     { "key": "ctrl+h", "command": "workbench.action.focusPreviousGroup"},
     { "key": "ctrl+l", "command": "workbench.action.focusNextGroup"},
+    { "key": "ctrl+s 1", "command": "workbench.action.openEditorAtIndex1" },
+    { "key": "ctrl+s 2", "command": "workbench.action.openEditorAtIndex2" },
+    { "key": "ctrl+s 3", "command": "workbench.action.openEditorAtIndex3" },
+    { "key": "ctrl+s 4", "command": "workbench.action.openEditorAtIndex4" },
+    { "key": "ctrl+s 5", "command": "workbench.action.openEditorAtIndex5" },
+    { "key": "ctrl+s 6", "command": "workbench.action.openEditorAtIndex6" },
+    { "key": "ctrl+s 7", "command": "workbench.action.openEditorAtIndex7" },
+    { "key": "ctrl+s 8", "command": "workbench.action.openEditorAtIndex8" },
+    { "key": "ctrl+s 9", "command": "workbench.action.openEditorAtIndex9" },
 
     // terminal window
     { "key": "cmd+t", "command": "workbench.action.terminal.toggleTerminal" },
