@@ -120,6 +120,11 @@ clone_from_github () {
 }
 alias gclo="clone_from_github"
 alias gsm="git add .; git commit -m \"#Squash me\""
+# Update master from remote origin master without checking out from my current branch. Works only for fast-forward merges (which should always be the case when updating master from origin master).
+alias gupm="git fetch origin master:master"
+alias grbim="git rebase -i master"
+alias gcmp="git checkout master && git pull origin master"
+
 alias goerr="errcheck -blank ./..."
 
 ## Retrieve sensible credentials ##

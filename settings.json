@@ -221,7 +221,7 @@
     //"go.useLanguageServer": true,
 
     // gometalinter may be quite slow, in this case configure some go.lintFlags or use golangci-lint or the default golint
-    "go.lintTool": "gometalinter",
+    // "go.lintTool": "gometalinter",
 
     // If want to use debugging, install delve
 
