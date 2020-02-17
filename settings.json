@@ -217,6 +217,9 @@
     //"go.gopath": "/Users/charpi/go",
     //"go.goroot": "/usr/local/opt/go/libexec",
 
+    // To enable goimports when using go modules
+    "go.formatTool": "goimports",
+
     // enable go language server
     //"go.useLanguageServer": true,
 
