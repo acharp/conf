@@ -4,33 +4,34 @@
     { "key": "ctrl+n", "command": "workbench.action.toggleSidebarVisibility"},
     { "key": "ctrl+cmd+h", "command": "workbench.view.explorer"},
     { "key": "ctrl+c", "command": "workbench.files.action.collapseExplorerFolders"},
+    { "key": "ctrl+c", "command": "list.collapseAll"},
     { "key": "j", "command": "list.focusDown", "when": "listFocus" },
     { "key": "k", "command": "list.focusUp", "when": "listFocus" },
     { "key": "enter", "command": "list.collapse", "when": "listFocus && !inputFocus"},
     { "key": "enter", "command": "list.select", "when": "listFocus && !inputFocus"},
     { "key": "shift+i", "command": "extension.peepToggle", "when": "listFocus && !inputFocus"},
 
+    // VSCode specifics
     { "key": "cmd+d", "command": "workbench.view.debug" },
     { "key": "cmd+s", "command": "workbench.view.search", "when": "!searchViewletVisible" },
+    { "key": "cmd+o", "command": "outline.focus"},
+    // toggle find replace toolbar
     { "key": "ctrl+/", "command": "editor.action.startFindReplaceAction", "when":"editorTextFocus && vim.active && vim.mode == 'Normal'" },
+    // format file using the formatter set up
+    {"key": "cmd+f", "command": "editor.action.format"},
+    // toggle wordWrap
+    {"key": "ctrl+w", "command":"editor.action.toggleWordWrap"},
+    // add multi cursor to next occurence of the current selected (as a visual selection) element
+    // works well only if the element is selected as a vim visual selection
+    { "key": "cmd+m", "command": "editor.action.addSelectionToNextFindMatch", "when": "editorFocus" },
 
     // copy absolute path of the current file
     { "key": "ctrl+cmd+p", "command": "copyFilePath" },
     // relative
     { "key": "alt+cmd+p", "command": "copyRelativeFilePath" },
 
-    // format file using the formatter set up
-    {"key": "cmd+f", "command": "editor.action.format"},
-
-    // toggle wordWrap
-    {"key": "ctrl+w", "command":"editor.action.toggleWordWrap"},
-
     // ctrlP like in vim
     { "key": "ctrl+p", "command": "workbench.action.quickOpen"},
-
-    // add multi cursor to next occurence of the current selected (as a visual selection) element
-    // works well only if the element is selected as a vim visual selection
-    { "key": "cmd+m", "command": "editor.action.addSelectionToNextFindMatch", "when": "editorFocus" },
 
     // go to definition
     { "key": "cmd+g", "command": "editor.action.revealDefinition", "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor" },
