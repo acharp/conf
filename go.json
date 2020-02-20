@@ -1,0 +1,7 @@
+{
+	"Insert err checking": {
+		"prefix": ["ierr"],
+		"body": ["if err != nil {", "	$0", "}"]
+	}
+
+}
