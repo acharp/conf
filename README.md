@@ -1,4 +1,4 @@
-# Setup a new laptop
+# Set up a new laptop
 
 - Install iterm2
 - Install brew
