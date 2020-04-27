@@ -3,7 +3,7 @@
 - Install iterm2
 - Install brew
 - Install zsh + oh my zsh
-- Configure theme, font, etc both in zshrc and iterm2
+- Configure theme (colors preset Afterglow) and font (Meslo LG) in iterm2
 - Install tmux
 - Install neovim
 - Install pyenv and setup the neovim_python folder
