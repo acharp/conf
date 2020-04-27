@@ -1,6 +1,7 @@
 Choose a directory that you like to do all that. This is where your neovim python installation will live.
 E.g. ~/.config/neovim_python_paths/
 
+# Use more recent python versions than the ones below but stick to 2 and 3
 pyenv install 2.7.11
 pyenv install 3.6.5
 
