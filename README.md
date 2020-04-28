@@ -11,6 +11,7 @@
 - Install VS Code
 - Clone the conf folder in my home directory
 - Create the symlinks (running the script)
+- Run a vim-plug :PlugInstall
 - Install the different languages (and other tools) with brew
 - Create the cred file
 - Roll baby
