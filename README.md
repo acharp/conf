@@ -5,7 +5,7 @@
 - Install zsh + oh my zsh
 - Configure theme (colors preset Afterglow) and font (Meslo LG) in iterm2
 - Install tmux
-- Install neovim
+- Install neovim and vim-plug
 - Install pyenv and setup the neovim_python folder
 - Install the different languages (and other tools) with brew
 - Install VS Code
