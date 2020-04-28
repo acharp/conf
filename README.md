@@ -7,9 +7,9 @@
 - Install tmux
 - Install neovim and vim-plug
 - Install pyenv and setup the neovim_python folder
-- Clone the conf folder in my home directory
-- Install the different languages (and other tools) with brew
 - Install VS Code
+- Clone the conf folder in my home directory
 - Create the symlinks (running the script)
+- Install the different languages (and other tools) with brew
 - Create the cred file
 - Roll baby
