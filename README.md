@@ -5,7 +5,7 @@
 - Install zsh + oh my zsh
 - Install custom zsh plugins (as of today: zsh-autosuggestions and zsh-completions). Installing them through git works well
 - Configure theme (colors preset Afterglow) and font (Meslo LG) in iterm2
-- Install tmux
+- Install tmux and run a 'brew install reattach-to-user-namespace'
 - Install neovim and vim-plug
 - Install pyenv and setup the neovim_python folder
 - Install VS Code
