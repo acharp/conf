@@ -1,5 +1,7 @@
 [include]
     path = ~/.gitconfig.local
+[credential]
+	helper = store
 [core]
 	editor = nvim
     excludesfile = ~/.gitignore_global
@@ -39,5 +41,7 @@
     cmp = !git checkout master && git pull origin master
 [pager]
 	branch = false
-[credential]
-	helper = store
+[commit]
+    gpgsign = true
+[gpg]
+    program = /usr/local/bin/gpg
