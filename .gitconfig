@@ -11,7 +11,7 @@
     excludesfile = ~/.gitignore_global
 	whitespace = cr-at-eol
 [pull]
-    rebase = preserve
+    rebase = merges
 [push]
 	default = upstream
 [merge]
