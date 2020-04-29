@@ -2,6 +2,10 @@
     path = ~/.gitconfig.local
 [credential]
 	helper = store
+[commit]
+    gpgsign = true
+[gpg]
+    program = /usr/local/bin/gpg
 [core]
 	editor = nvim
     excludesfile = ~/.gitignore_global
@@ -19,6 +23,8 @@
     tool = vimdiff
 [mergetool]
 	prompt = false
+[pager]
+	branch = false
 [alias]
     lg = !"git lg1-specific --all"
     lg1 = !"git lg1-specific --all --stat"
@@ -39,9 +45,3 @@
 
     rbim = rebase -i master
     cmp = !git checkout master && git pull origin master
-[pager]
-	branch = false
-[commit]
-    gpgsign = true
-[gpg]
-    program = /usr/local/bin/gpg
