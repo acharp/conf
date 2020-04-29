@@ -39,3 +39,5 @@
     cmp = !git checkout master && git pull origin master
 [pager]
 	branch = false
+[credential]
+	helper = store
