@@ -15,8 +15,8 @@ set rnu
 set nu
 
 " Set python paths for neovim
-let g:python_host_prog = '/Users/Charpi/.config/neovim_python_paths/neovim2/bin/python'
-let g:python3_host_prog = '/Users/Charpi/.config/neovim_python_paths/neovim3/bin/python'
+let g:python_host_prog = '/Users/charpi/.config/neovim_python_paths/neovim2/bin/python'
+let g:python3_host_prog = '/Users/charpi/.config/neovim_python_paths/neovim3/bin/python'
 
 " Shorter update time to triggerp lugins
 set updatetime=1000
