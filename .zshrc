@@ -162,11 +162,21 @@ export GOPATH="$HOME/go"
 export GOROOT="/usr/local/opt/go/libexec"
 export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
 
+## nvm ##
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+## ruby ##
+# Let homebrew ruby take precedence over the system's one
+export PATH="$PATH:/usr/local/opt/ruby/bin"
+
 ## vscode pylama and yapf installation for when we are not in a virtualenved project ##
 export PATH="$PATH:$HOME/Library/Python/3.7/bin"
 
-## Redshift psql cli setup ##
-# Plaintext cluster (open ssh tunnel first)
+## psql cli setup example ##
+# Redshift cluster through ssh tunnel
+# (without tunnel, just replace the localhost ip directly with the database ip)
 export RS_PTEXT_PWD
 export RS_PTEXT_USER
 export RS_PTEXT_PORT
@@ -183,46 +193,12 @@ function run_ptext() {
     PGPASSWORD=$RS_PTEXT_PWD psql -h 127.0.0.1 -U $RS_PTEXT_USER -p $RS_PTEXT_PORT -d $RS_PTEXT_DB -A -F"," -f $1 -o $2.csv
 }
 alias runptex="run_ptext"
-# Pseudo cluster (open ssh tunnel first)
-export RS_PSEUDO_PWD
-export RS_PSEUDO_USER
-export RS_PSEUDO_PORT
-export RS_PSEUDO_DB
-alias psql_pseudo="PGPASSWORD=$RS_PSEUDO_PWD psql -h 127.0.0.1 -U $RS_PSEUDO_USER -p $RS_PSEUDO_PORT -d $RS_PSEUDO_DB -a"
-function live_run_pseudo() {
-    PGPASSWORD=$RS_PSEUDO_PWD psql -h 127.0.0.1 -U $RS_PSEUDO_USER -p $RS_PSEUDO_PORT -d $RS_PSEUDO_DB -a -f $1
-}
-alias lrunpseu="live_run_pseudo"
-function run_pseudo() {
-    PGPASSWORD=$RS_PSEUDO_PWD psql -h 127.0.0.1 -U $RS_PSEUDO_USER -p $RS_PSEUDO_PORT -d $RS_PSEUDO_DB -A -F"," -f $1 -o $2.csv
-}
-alias runpseu="run_pseudo"
-# Snowplow cluster (no need for ssh tunnel):
-export RS_SPLOW_PWD
-export RS_SPLOW_USER
-export RS_SPLOW_PORT
-export RS_SPLOW_HOST
-# Since the snowplow pwd has a backslash we cannot add PGPASSWORD=$RS_SNOWPLOW_PWD in the psql_splow command so we define it as the default PGPASSWORD
-export PGPASSWORD
-alias psql_splow="psql -h $RS_SPLOW_HOST -U $RS_SPLOW_USER -p $RS_SPLOW_PORT -d $RS_SPLOW_DB -a"
-function live_run_splow() {
-    psql -h $RS_SPLOW_HOST -U $RS_SPLOW_USER -p $RS_SPLOW_PORT -d $RS_SPLOW_DB -a -f $1
-}
-alias lrunsplo="live_run_splow"
-function run_splow() {
-    psql -h $RS_SPLOW_HOST -U $RS_SPLOW_USER -p $RS_SPLOW_PORT -d $RS_SPLOW_DB -A -F"," -f $1 -o $2.csv
-}
-alias runsplo="run_splow"
 
 ## kubectl autocompletion ##
 if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
 
-## wetransfer platform user needed for ssh ##
-export WT_PLATFORM_USER
-
-## mysql client config for live read stat db
-export PATH="/usr/local/opt/mysql-client/bin:$PATH"
-alias mysql_live="mysql --host=127.0.0.1 --port=3307 -u arnaud -D live -p"
+## GPG prompt ##
+export GPG_TTY=`tty`
 
 ## message bird API keys and phone number ##
 export MBIRD_TEST
