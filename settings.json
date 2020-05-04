@@ -253,8 +253,9 @@
         ///// SQL /////
     "pgFormatter.spaces": 4,
     "[sql]": {
-        "editor.defaultFormatter": "ms-ossdata.vscode-postgresql"
+        "editor.defaultFormatter": "ckolkman.vscode-postgres"
     },
     "extensions.ignoreRecommendations": false,
+    "workbench.startupEditor": "newUntitledFile",
 
 }
