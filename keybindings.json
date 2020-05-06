@@ -15,6 +15,7 @@
     { "key": "cmd+d", "command": "workbench.view.debug" },
     { "key": "cmd+s", "command": "workbench.view.search", "when": "!searchViewletVisible" },
     { "key": "cmd+o", "command": "outline.focus"},
+    { "key": "cmd+h", "command": "editor.action.showHover", "when": "editorTextFocus" },
     // toggle find replace toolbar
     { "key": "ctrl+/", "command": "editor.action.startFindReplaceAction", "when":"editorTextFocus && vim.active && vim.mode == 'Normal'" },
     // format file using the formatter set up

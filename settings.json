@@ -25,6 +25,7 @@
     "editor.minimap.enabled": false,
     "workbench.editor.enablePreview": false,
     "editor.renderWhitespace": "selection",
+    "workbench.startupEditor": "newUntitledFile",
 
 
 
@@ -203,11 +204,20 @@
         },
     ],
 
-
     // delegate these keys to be handled by vscode
     "vim.handleKeys": {
         //"<C-b>": false
     },
+
+
+
+        ///// typescript /////
+
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
+    "typescript.referencesCodeLens.enabled": true,
+    "typescript.implementationsCodeLens.enabled": true,
 
 
 
@@ -256,6 +266,5 @@
         "editor.defaultFormatter": "ckolkman.vscode-postgres"
     },
     "extensions.ignoreRecommendations": false,
-    "workbench.startupEditor": "newUntitledFile",
 
 }
