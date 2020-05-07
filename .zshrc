@@ -200,6 +200,10 @@ if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
 ## GPG prompt ##
 export GPG_TTY=`tty`
 
+## local ES folder ##
+export ES_HOME=~/Applications/elasticsearch-6.2.2
+export PATH="$PATH:$ES_HOME/bin"
+
 ## message bird API keys and phone number ##
 export MBIRD_TEST
 export MBIRD_LIVE_A
