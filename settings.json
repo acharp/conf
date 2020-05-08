@@ -26,6 +26,7 @@
     "workbench.editor.enablePreview": false,
     "editor.renderWhitespace": "selection",
     "workbench.startupEditor": "newUntitledFile",
+    "editor.peekWidgetDefaultFocus": "editor",
 
 
 
