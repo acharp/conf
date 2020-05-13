@@ -214,10 +214,7 @@
 
         ///// typescript /////
 
-    "editor.codeActionsOnSave": {
-        "source.organizeImports": true
-    },
-    "typescript.referencesCodeLens.enabled": true,
+    //"editor.codeActionsOnSave": { "source.organizeImports": true },
     "typescript.implementationsCodeLens.enabled": true,
 
 

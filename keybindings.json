@@ -12,6 +12,7 @@
     { "key": "shift+i", "command": "extension.peepToggle", "when": "listFocus && !inputFocus"},
 
     // VSCode specifics
+    { "key": "cmd+e", "command": "workbench.view.explorer" },
     { "key": "cmd+d", "command": "workbench.view.debug" },
     { "key": "cmd+s", "command": "workbench.view.search", "when": "!searchViewletVisible" },
     { "key": "cmd+o", "command": "outline.focus"},
@@ -34,10 +35,11 @@
     // ctrlP like in vim
     { "key": "ctrl+p", "command": "workbench.action.quickOpen"},
 
-    // go to definition
+    // go to definition and reference
     { "key": "cmd+g", "command": "editor.action.revealDefinition", "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor" },
     { "key": "cmd+k", "command": "editor.action.peekDefinition", "when": "editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor" },
     { "key": "cmd+l", "command": "editor.action.revealDefinitionAside", "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor" },
+    { "key": "cmd+u", "command": "editor.action.goToReferences", "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor" },
 
     // reproduce tmux workflow
     { "key": "ctrl+s n", "command": "workbench.action.previousEditor"},
