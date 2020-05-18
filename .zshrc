@@ -171,9 +171,6 @@ export NVM_DIR="$HOME/.nvm"
 # Let homebrew ruby take precedence over the system's one
 export PATH="$PATH:/usr/local/opt/ruby/bin"
 
-## vscode pylama and yapf installation for when we are not in a virtualenved project ##
-export PATH="$PATH:$HOME/Library/Python/3.7/bin"
-
 ## psql cli setup example ##
 # Redshift cluster through ssh tunnel
 # (without tunnel, just replace the localhost ip directly with the database ip)

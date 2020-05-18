@@ -43,6 +43,16 @@
     { "key": "cmd+u", "command": "editor.action.goToTypeDefinition", "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor" },
     { "key": "cmd+i", "command": "editor.action.peekTypeDefinition", "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor" },
 
+    // debug
+    { "key": "alt+b", "command": "editor.debug.action.toggleBreakpoint", "when": "editorTextFocus" },
+    { "key": "alt+d", "command": "workbench.action.debug.start", "when": "!inDebugMode" },
+    { "key": "alt+d", "command": "workbench.action.debug.continue", "when": "inDebugMode" },
+    { "key": "alt+s", "command": "workbench.action.debug.stop", "when": "inDebugMode" },
+    { "key": "alt+r", "command": "workbench.action.debug.restart", "when": "inDebugMode" },
+    { "key": "alt+o", "command": "workbench.action.debug.stepOver", "when": "debugState == 'stopped'" },
+    { "key": "alt+i", "command": "workbench.action.debug.stepInto", "when": "debugState != 'inactive'" },
+    { "key": "alt+u", "command": "workbench.action.debug.stepOut", "when": "debugState == 'stopped'" },
+
     // reproduce tmux workflow
     { "key": "ctrl+s n", "command": "workbench.action.previousEditor"},
     { "key": "ctrl+s m", "command": "workbench.action.nextEditor"},

@@ -27,6 +27,11 @@
     "editor.renderWhitespace": "selection",
     "workbench.startupEditor": "newUntitledFile",
     "editor.peekWidgetDefaultFocus": "editor",
+    "editor.rulers": [120],
+    "workbench.colorCustomizations": {
+        "editorRuler.foreground": "#2E2E2E"
+    },
+
 
 
 
@@ -221,10 +226,6 @@
 
         ///// golang /////
 
-    // only needed if not opening vscode through "code" cli cmd
-    //"go.gopath": "/Users/charpi/go",
-    //"go.goroot": "/usr/local/opt/go/libexec",
-
     // To enable goimports when using go modules
     "go.formatTool": "goimports",
 
@@ -240,8 +241,7 @@
 
         ///// python /////
 
-    "python.formatting.provider": "yapf",
-    "python.formatting.yapfArgs": ["--style", "{based_on_style: chromium, indent_width: 4, column_limit: 100}"],
+    "python.formatting.provider": "black",
 
     "python.linting.pylintEnabled": false,
     "python.linting.pylamaEnabled": true,
@@ -259,7 +259,6 @@
 
 
         ///// SQL /////
-    "pgFormatter.spaces": 4,
     "[sql]": {
         "editor.defaultFormatter": "ckolkman.vscode-postgres"
     },
