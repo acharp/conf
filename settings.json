@@ -242,6 +242,7 @@
         ///// python /////
 
     "python.formatting.provider": "black",
+    "python.formatting.blackArgs": ["--skip-string-normalization"],
 
     "python.linting.pylintEnabled": false,
     "python.linting.pylamaEnabled": true,
