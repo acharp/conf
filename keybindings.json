@@ -10,11 +10,14 @@
     { "key": "enter", "command": "list.collapse", "when": "listFocus && !inputFocus"},
     { "key": "enter", "command": "list.select", "when": "listFocus && !inputFocus"},
     { "key": "shift+i", "command": "extension.peepToggle", "when": "listFocus && !inputFocus"},
+    // when in search explorer
+    { "key": "ctrl+j", "command": "search.focus.nextInputBox", "when": "inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible" },
+    { "key": "ctrl+r", "command": "history.showPrevious", "when": "inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible" },
 
     // VSCode specifics
     { "key": "cmd+e", "command": "workbench.view.explorer" },
     { "key": "cmd+d", "command": "workbench.view.debug" },
-    { "key": "cmd+s", "command": "workbench.view.search", "when": "!searchViewletVisible" },
+    { "key": "cmd+s", "command": "workbench.view.search"},
     { "key": "cmd+o", "command": "outline.focus"},
     { "key": "cmd+h", "command": "editor.action.showHover", "when": "editorTextFocus" },
     // toggle find replace toolbar
@@ -77,7 +80,7 @@
     // terminal window
     { "key": "cmd+t", "command": "workbench.action.terminal.toggleTerminal" },
     { "key": "cmd+p", "command": "workbench.action.tasks.toggleProblems" },
-    { "key": "ctrl+j", "command": "workbench.action.terminal.focus" },
+    { "key": "ctrl+j", "command": "workbench.action.terminal.focus", "when": "!(inSearchEditor && inputBoxFocus && searchViewletVisible)" },
     { "key": "ctrl+k", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"},
     { "key": "ctrl+z", "command": "workbench.action.terminal.new" },
     { "key": "ctrl+x", "command": "workbench.action.terminal.kill", "when": "terminalFocus"},
