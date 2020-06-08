@@ -42,6 +42,9 @@
 
     # Update master from remote origin master without checking out from my current branch. Works only for fast-forward merges (which should always be the case when updating master from origin master).
     upm = fetch origin master:master
+    upd = fetch origin develop:develop
 
     rbim = rebase -i master
+    rbid = rebase -i develop
     cmp = !git checkout master && git pull origin master
+    cdp = !git checkout develop && git pull origin develop
