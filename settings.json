@@ -161,10 +161,11 @@
         "before": ["<leader>", "b", "d"],
         "commands": ["workbench.action.closeActiveEditor"]
         },
-        // kill all buffers except current (~= close active window in vscode)
+        // kill all buffers
         {
-        "before": ["<leader>", "b", "a", "d"],
-        "commands": ["workbench.action.closeOtherEditors"]
+        "before": ["<leader>", "b", "b", "d"],
+        "commands": ["workbench.action.closeAllEditors"]
+        // "commands": ["workbench.action.closeOtherEditors"]  // if you want kill all buffers except the current one
         },
     ],
     "vim.visualModeKeyBindingsNonRecursive": [

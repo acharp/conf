@@ -29,6 +29,7 @@
     // add multi cursor to next occurence of the current selected (as a visual selection) element
     // works well only if the element is selected as a vim visual selection
     { "key": "cmd+m", "command": "editor.action.addSelectionToNextFindMatch", "when": "editorFocus" },
+    // but actually just having the cursor on a word in normal mode and pressing "gb" seems to do a better job
 
     // copy absolute path of the current file
     { "key": "ctrl+cmd+p", "command": "copyFilePath" },
@@ -52,9 +53,9 @@
     { "key": "alt+d", "command": "workbench.action.debug.continue", "when": "inDebugMode" },
     { "key": "alt+s", "command": "workbench.action.debug.stop", "when": "inDebugMode" },
     { "key": "alt+r", "command": "workbench.action.debug.restart", "when": "inDebugMode" },
-    { "key": "alt+o", "command": "workbench.action.debug.stepOver", "when": "debugState == 'stopped'" },
-    { "key": "alt+i", "command": "workbench.action.debug.stepInto", "when": "debugState != 'inactive'" },
-    { "key": "alt+u", "command": "workbench.action.debug.stepOut", "when": "debugState == 'stopped'" },
+    { "key": "alt+8", "command": "workbench.action.debug.stepOver", "when": "debugState == 'stopped'" },
+    { "key": "alt+9", "command": "workbench.action.debug.stepInto", "when": "debugState != 'inactive'" },
+    { "key": "alt+0", "command": "workbench.action.debug.stepOut", "when": "debugState == 'stopped'" },
 
     // reproduce tmux workflow
     { "key": "ctrl+s n", "command": "workbench.action.previousEditor"},

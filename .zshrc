@@ -171,8 +171,9 @@ export NVM_DIR="$HOME/.nvm"
 # Let homebrew ruby take precedence over the system's one
 export PATH="$PATH:/usr/local/opt/ruby/bin"
 
+
 ## psql cli setup example ##
-# Redshift cluster through ssh tunnel
+# Redshift cluster through ssh tunnel (from WT time)
 # (without tunnel, just replace the localhost ip directly with the database ip)
 export RS_PTEXT_PWD
 export RS_PTEXT_USER
@@ -190,6 +191,63 @@ function run_ptext() {
     PGPASSWORD=$RS_PTEXT_PWD psql -h 127.0.0.1 -U $RS_PTEXT_USER -p $RS_PTEXT_PORT -d $RS_PTEXT_DB -A -F"," -f $1 -o $2.csv
 }
 alias runptex="run_ptext"
+
+## PP psql cli setup ##
+export WE_PROD_PWD
+export WE_PROD_USER
+export WE_PROD_PORT
+export WE_PROD_DB
+# Open CLI
+alias psql_weprod="PGPASSWORD=$WE_PROD_PWD psql -h 127.0.0.1 -U $WE_PROD_USER -p $WE_PROD_PORT -d $WE_PROD_DB -a"
+# Run sql from a file and return result live
+function live_run_weprod() {
+    PGPASSWORD=$WE_PROD_PWD psql -h 127.0.0.1 -U $WE_PROD_USER -p $WE_PROD_PORT -d $WE_PROD_DB -a -f $1
+}
+alias lrunweprod="live_run_weprod"
+# Run sql from a file and output result to file
+function run_weprod() {
+    PGPASSWORD=$WE_PROD_PWD psql -h 127.0.0.1 -U $WE_PROD_USER -p $WE_PROD_PORT -d $WE_PROD_DB -A -F"," -f $1 -o $2.csv
+}
+alias runweprod="run_weprod"
+
+export WE_DEV_PWD
+export WE_DEV_USER
+export WE_DEV_PORT
+export WE_DEV_DB
+export WE_DEV_HOST
+# Open CLI
+alias psql_wedev="PGPASSWORD=$WE_DEV_PWD psql -h $WE_DEV_HOST -U $WE_DEV_USER -p $WE_DEV_PORT -d $WE_DEV_DB -a"
+# Run sql from a file and return result live
+function live_run_wedev() {
+    PGPASSWORD=$WE_DEV_PWD psql -h $WE_DEV_HOST -U $WE_DEV_USER -p $WE_DEV_PORT -d $WE_DEV_DB -a -f $1
+}
+alias lrunwedev="live_run_wedev"
+# Run sql from a file and output result to file
+function run_wedev() {
+    PGPASSWORD=$WE_DEV_PWD psql -h $WE_DEV_HOST -U $WE_DEV_USER -p $WE_DEV_PORT -d $WE_DEV_DB -A -F"," -f $1 -o $2.csv
+}
+alias runwedev="run_wedev"
+
+export WE_TEST_PWD
+export WE_TEST_USER
+export WE_TEST_PORT
+export WE_TEST_DB
+export WE_TEST_HOST
+# WE_TEST_PWD is fucked (it has a ";") so we use the good old trick of using PGPASSWORD to avoid passing the password in the cli command
+export PGPASSWORD
+# Open CLI
+alias psql_wetest="psql -h $WE_TEST_HOST -U $WE_TEST_USER -p $WE_TEST_PORT -d $WE_TEST_DB -a"
+# Run sql from a file and return result live
+function live_run_wetest() {
+    psql -h $WE_TEST_HOST -U $WE_TEST_USER -p $WE_TEST_PORT -d $WE_TEST_DB -a -f $1
+}
+alias lrunwetest="live_run_wedev"
+# Run sql from a file and output result to file
+function run_wetest() {
+    psql -h $WE_TEST_HOST -U $WE_TEST_USER -p $WE_TEST_PORT -d $WE_TEST_DB -A -F"," -f $1 -o $2.csv
+}
+alias runwetest="run_wedev"
+
 
 ## kubectl autocompletion ##
 if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
