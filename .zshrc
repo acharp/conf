@@ -241,12 +241,12 @@ alias psql_wetest="psql -h $WE_TEST_HOST -U $WE_TEST_USER -p $WE_TEST_PORT -d $W
 function live_run_wetest() {
     psql -h $WE_TEST_HOST -U $WE_TEST_USER -p $WE_TEST_PORT -d $WE_TEST_DB -a -f $1
 }
-alias lrunwetest="live_run_wedev"
+alias lrunwetest="live_run_wetest"
 # Run sql from a file and output result to file
 function run_wetest() {
     psql -h $WE_TEST_HOST -U $WE_TEST_USER -p $WE_TEST_PORT -d $WE_TEST_DB -A -F"," -f $1 -o $2.csv
 }
-alias runwetest="run_wedev"
+alias runwetest="run_wetest"
 
 
 ## kubectl autocompletion ##
