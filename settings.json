@@ -51,6 +51,9 @@
     "vim.hlsearch": true,
     // start a search from the current visual selection by pressing * or #
     "vim.visualstar": true,
+    // enable neovim
+    "vim.neovimPath": "/usr/local/bin/nvim",
+    "vim.enableNeovim": true,
 
     // just during the setting up phase, to take out later
     "vim.debug.loggingLevelForConsole": "debug",
@@ -255,6 +258,7 @@
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     // Use python language server instead of jedi
     "python.jediEnabled": false,
+    "python.languageServer": "Microsoft",
 
     "python.autoComplete.addBrackets": true,
 

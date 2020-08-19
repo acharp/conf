@@ -21,6 +21,9 @@ let g:python3_host_prog = '/Users/charpi/.config/neovim_python_paths/neovim3/bin
 " Shorter update time to triggerp lugins
 set updatetime=1000
 
+" Keeps vim from automatically adding a new line at the EOF
+set noendofline
+
 " Choose swapfile directory
 set swapfile
 set dir=/tmp

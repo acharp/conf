@@ -29,7 +29,7 @@
     // add multi cursor to next occurence of the current selected (as a visual selection) element
     // works well only if the element is selected as a vim visual selection
     { "key": "cmd+m", "command": "editor.action.addSelectionToNextFindMatch", "when": "editorFocus" },
-    // but actually just having the cursor on a word in normal mode and pressing "gb" seems to do a better job
+    // but actually having the cursor on a word in normal mode (or on a selection in visual mode) and pressing "gb" seems to do a much better job
 
     // copy absolute path of the current file
     { "key": "ctrl+cmd+p", "command": "copyFilePath" },
@@ -81,7 +81,7 @@
     // terminal window
     { "key": "cmd+t", "command": "workbench.action.terminal.toggleTerminal" },
     { "key": "cmd+p", "command": "workbench.action.tasks.toggleProblems" },
-    { "key": "ctrl+j", "command": "workbench.action.terminal.focus", "when": "!(inSearchEditor && inputBoxFocus && searchViewletVisible)" },
+    { "key": "ctrl+j", "command": "workbench.action.terminal.focus", "when": "editorTextFocus" },
     { "key": "ctrl+k", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"},
     { "key": "ctrl+z", "command": "workbench.action.terminal.new" },
     { "key": "ctrl+x", "command": "workbench.action.terminal.kill", "when": "terminalFocus"},
