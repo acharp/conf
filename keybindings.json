@@ -9,7 +9,7 @@
     { "key": "k", "command": "list.focusUp", "when": "listFocus" },
     { "key": "enter", "command": "list.collapse", "when": "listFocus && !inputFocus"},
     { "key": "enter", "command": "list.select", "when": "listFocus && !inputFocus"},
-    { "key": "shift+i", "command": "extension.peepToggle", "when": "listFocus && !inputFocus"},
+    { "key": "shift+i", "command": "toggleexcludedfiles.toggle", "when": "listFocus && !inputFocus"},
     // when in search explorer
     { "key": "ctrl+j", "command": "search.focus.nextInputBox", "when": "inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible" },
     { "key": "ctrl+r", "command": "history.showPrevious", "when": "inSearchEditor && inputBoxFocus || inputBoxFocus && searchViewletVisible" },
@@ -46,6 +46,10 @@
     { "key": "cmd+y", "command": "editor.action.goToReferences", "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor" },
     { "key": "cmd+u", "command": "editor.action.goToTypeDefinition", "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor" },
     { "key": "cmd+i", "command": "editor.action.peekTypeDefinition", "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor" },
+
+    // send tabs to left or right split
+    { "key": "cmd+,",            "command": "workbench.action.moveEditorToPreviousGroup" },
+    { "key": "cmd+.",            "command": "workbench.action.moveEditorToNextGroup" },
 
     // debug
     { "key": "alt+b", "command": "editor.debug.action.toggleBreakpoint", "when": "editorTextFocus" },
@@ -91,4 +95,5 @@
 
     // languages related bindings
     { "key": "ctrl+i", "command": "python.sortImports"},
+
 ]

@@ -248,6 +248,29 @@ function run_wetest() {
 }
 alias runwetest="run_wetest"
 
+export AC_DEV_PWD
+export AC_DEV_USER
+export AC_DEV_PORT
+export AC_DEV_DB
+export AC_DEV_HOST
+# Open CLI
+alias psql_acdev="PGPASSWORD=$AC_DEV_PWD psql -h $AC_DEV_HOST -U $AC_DEV_USER -p $AC_DEV_PORT -d $AC_DEV_DB -a"
+
+export SUB_DEV_PWD
+export SUB_DEV_USER
+export SUB_DEV_PORT
+export SUB_DEV_DB
+export SUB_DEV_HOST
+# Open CLI
+alias psql_subdev="PGPASSWORD=$SUB_DEV_PWD psql -h $SUB_DEV_HOST -U $SUB_DEV_USER -p $SUB_DEV_PORT -d $SUB_DEV_DB -a"
+
+export SUB_PROD_PWD
+export SUB_PROD_USER
+export SUB_PROD_PORT
+export SUB_PROD_DB
+export SUB_PROD_HOST
+# Open CLI
+alias psql_subprod="PGPASSWORD=$SUB_PROD_PWD psql -h $SUB_PROD_HOST -U $SUB_PROD_USER -p $SUB_PROD_PORT -d $SUB_PROD_DB -a"
 
 ## kubectl autocompletion ##
 if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
@@ -264,3 +287,7 @@ export MBIRD_TEST
 export MBIRD_LIVE_A
 export MBIRD_LIVE_I
 export PHONE_NUMBER
+
+# XXX: short circuit tabtab completion auto installation
+# tabtab source for serverless package
+# tabtab source for sls package

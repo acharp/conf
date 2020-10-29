@@ -8,8 +8,6 @@
     "files.trimTrailingWhitespace": true,
     "editor.fontFamily": "Menlo",
     "editor.fontSize": 13,
-    // used in combination of Peep extension to reproduce the vim NerdTree shift+i behaviour
-    // for some reasons this needs to be added to any .vscode local workspace as well...
     "files.exclude": {
         ".*": true
     },
