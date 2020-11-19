@@ -46,10 +46,11 @@
     { "key": "cmd+y", "command": "editor.action.goToReferences", "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor" },
     { "key": "cmd+u", "command": "editor.action.goToTypeDefinition", "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor" },
     { "key": "cmd+i", "command": "editor.action.peekTypeDefinition", "when": "editorHasDefinitionProvider && editorTextFocus && !isInEmbeddedEditor" },
+    { "key": "cmd+r", "command": "editor.showCallHierarchy", "when": "editorHasCallHierarchyProvider && editorTextFocus && !inReferenceSearchEditor" },
 
     // send tabs to left or right split
-    { "key": "cmd+,",            "command": "workbench.action.moveEditorToPreviousGroup" },
-    { "key": "cmd+.",            "command": "workbench.action.moveEditorToNextGroup" },
+    { "key": "cmd+,", "command": "workbench.action.moveEditorToPreviousGroup" },
+    { "key": "cmd+.", "command": "workbench.action.moveEditorToNextGroup" },
 
     // debug
     { "key": "alt+b", "command": "editor.debug.action.toggleBreakpoint", "when": "editorTextFocus" },
@@ -81,6 +82,9 @@
     { "key": "ctrl+s 7", "command": "workbench.action.openEditorAtIndex7" },
     { "key": "ctrl+s 8", "command": "workbench.action.openEditorAtIndex8" },
     { "key": "ctrl+s 9", "command": "workbench.action.openEditorAtIndex9" },
+    // resize window
+    {"key": "alt+up", "command":"workbench.action.increaseViewWidth"},
+    {"key": "alt+down", "command":"workbench.action.decreaseViewWidth"},
 
     // terminal window
     { "key": "cmd+t", "command": "workbench.action.terminal.toggleTerminal" },

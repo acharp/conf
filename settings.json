@@ -221,8 +221,17 @@
 
         ///// typescript /////
 
-    //"editor.codeActionsOnSave": { "source.organizeImports": true },
     "typescript.implementationsCodeLens.enabled": true,
+
+    // eslint
+    // auto lint on save
+    "eslint.run": "onSave",
+    // auto fix on save
+    "[typescript]": {
+        "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": true
+        }
+    },
 
 
 

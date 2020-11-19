@@ -264,6 +264,14 @@ export SUB_DEV_HOST
 # Open CLI
 alias psql_subdev="PGPASSWORD=$SUB_DEV_PWD psql -h $SUB_DEV_HOST -U $SUB_DEV_USER -p $SUB_DEV_PORT -d $SUB_DEV_DB -a"
 
+export SUB_TEST_PWD
+export SUB_TEST_USER
+export SUB_TEST_PORT
+export SUB_TEST_DB
+export SUB_TEST_HOST
+# Open CLI
+alias psql_subtest="PGPASSWORD=$SUB_TEST_PWD psql -h $SUB_TEST_HOST -U $SUB_TEST_USER -p $SUB_TEST_PORT -d $SUB_TEST_DB -a"
+
 export SUB_PROD_PWD
 export SUB_PROD_USER
 export SUB_PROD_PORT
