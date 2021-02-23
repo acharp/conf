@@ -120,10 +120,6 @@ clone_from_github () {
 }
 alias gclo="clone_from_github"
 alias gsm="git add .; git commit -m \"#Squash me\""
-# Update master from remote origin master without checking out from my current branch. Works only for fast-forward merges (which should always be the case when updating master from origin master).
-alias gupm="git fetch origin master:master"
-alias grbim="git rebase -i master"
-alias gcmp="git checkout master && git pull origin master"
 
 alias goerr="errcheck -blank ./..."
 
@@ -197,16 +193,17 @@ export WE_PROD_PWD
 export WE_PROD_USER
 export WE_PROD_PORT
 export WE_PROD_DB
+export WE_PROD_HOST
 # Open CLI
-alias psql_weprod="PGPASSWORD=$WE_PROD_PWD psql -h 127.0.0.1 -U $WE_PROD_USER -p $WE_PROD_PORT -d $WE_PROD_DB -a"
+alias psql_weprod="PGPASSWORD=$WE_PROD_PWD psql -h $WE_PROD_HOST -U $WE_PROD_USER -p $WE_PROD_PORT -d $WE_PROD_DB -a"
 # Run sql from a file and return result live
 function live_run_weprod() {
-    PGPASSWORD=$WE_PROD_PWD psql -h 127.0.0.1 -U $WE_PROD_USER -p $WE_PROD_PORT -d $WE_PROD_DB -a -f $1
+    PGPASSWORD=$WE_PROD_PWD psql -h $WE_PROD_HOST -U $WE_PROD_USER -p $WE_PROD_PORT -d $WE_PROD_DB -a -f $1
 }
 alias lrunweprod="live_run_weprod"
 # Run sql from a file and output result to file
 function run_weprod() {
-    PGPASSWORD=$WE_PROD_PWD psql -h 127.0.0.1 -U $WE_PROD_USER -p $WE_PROD_PORT -d $WE_PROD_DB -A -F"," -f $1 -o $2.csv
+    PGPASSWORD=$WE_PROD_PWD psql -h $WE_PROD_HOST -U $WE_PROD_USER -p $WE_PROD_PORT -d $WE_PROD_DB -A -F"," -f $1 -o $2.csv
 }
 alias runweprod="run_weprod"
 
@@ -233,20 +230,36 @@ export WE_TEST_USER
 export WE_TEST_PORT
 export WE_TEST_DB
 export WE_TEST_HOST
-# WE_TEST_PWD is fucked (it has a ";") so we use the good old trick of using PGPASSWORD to avoid passing the password in the cli command
-export PGPASSWORD
 # Open CLI
-alias psql_wetest="psql -h $WE_TEST_HOST -U $WE_TEST_USER -p $WE_TEST_PORT -d $WE_TEST_DB -a"
+alias psql_wetest="PGPASSWORD=$WE_TEST_PWD psql -h $WE_TEST_HOST -U $WE_TEST_USER -p $WE_TEST_PORT -d $WE_TEST_DB -a"
 # Run sql from a file and return result live
 function live_run_wetest() {
-    psql -h $WE_TEST_HOST -U $WE_TEST_USER -p $WE_TEST_PORT -d $WE_TEST_DB -a -f $1
+    PGPASSWORD=$WE_TEST_PWD psql -h $WE_TEST_HOST -U $WE_TEST_USER -p $WE_TEST_PORT -d $WE_TEST_DB -a -f $1
 }
 alias lrunwetest="live_run_wetest"
 # Run sql from a file and output result to file
 function run_wetest() {
-    psql -h $WE_TEST_HOST -U $WE_TEST_USER -p $WE_TEST_PORT -d $WE_TEST_DB -A -F"," -f $1 -o $2.csv
+    PGPASSWORD=$WE_TEST_PWD psql -h $WE_TEST_HOST -U $WE_TEST_USER -p $WE_TEST_PORT -d $WE_TEST_DB -A -F"," -f $1 -o $2.csv
 }
 alias runwetest="run_wetest"
+
+export WE_ACC_PWD
+export WE_ACC_USER
+export WE_ACC_PORT
+export WE_ACC_DB
+export WE_ACC_HOST
+# Open CLI
+alias psql_weacc="PGPASSWORD=$WE_ACC_PWD psql -h $WE_ACC_HOST -U $WE_ACC_USER -p $WE_ACC_PORT -d $WE_ACC_DB -a"
+# Run sql from a file and return result live
+function live_run_weacc() {
+    PGPASSWORD=$WE_ACC_PWD psql -h $WE_ACC_HOST -U $WE_ACC_USER -p $WE_ACC_PORT -d $WE_ACC_DB -a -f $1
+}
+alias lrunweacc="live_run_weacc"
+# Run sql from a file and output result to file
+function run_weacc() {
+    PGPASSWORD=$WE_ACC_PWD psql -h $WE_ACC_HOST -U $WE_ACC_USER -p $WE_ACC_PORT -d $WE_ACC_DB -A -F"," -f $1 -o $2.csv
+}
+alias runweacc="run_weacc"
 
 export AC_DEV_PWD
 export AC_DEV_USER

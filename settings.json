@@ -9,7 +9,7 @@
     "editor.fontFamily": "Menlo",
     "editor.fontSize": 13,
     "files.exclude": {
-        ".*": true
+        ".*": false
     },
     "window.zoomLevel": 0,
     "editor.wordWrap": "off",

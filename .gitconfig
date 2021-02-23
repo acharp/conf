@@ -45,6 +45,10 @@
     upd = fetch origin develop:develop
 
     rbim = rebase -i master
+    rbm = rebase master
     rbid = rebase -i develop
+    rbd = rebase develop
     cmp = !git checkout master && git pull origin master
     cdp = !git checkout develop && git pull origin develop
+
+    pf = !git push origin $(git rev-parse --abbrev-ref HEAD) -f

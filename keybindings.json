@@ -26,10 +26,9 @@
     {"key": "cmd+f", "command": "editor.action.format"},
     // toggle wordWrap
     {"key": "ctrl+w", "command":"editor.action.toggleWordWrap"},
-    // add multi cursor to next occurence of the current selected (as a visual selection) element
-    // works well only if the element is selected as a vim visual selection
+    // add multi cursor to next occurence of the word under the cursor
     { "key": "cmd+m", "command": "editor.action.addSelectionToNextFindMatch", "when": "editorFocus" },
-    // but actually having the cursor on a word in normal mode (or on a selection in visual mode) and pressing "gb" seems to do a much better job
+    // pressing "gb" also works
 
     // copy absolute path of the current file
     { "key": "ctrl+cmd+p", "command": "copyFilePath" },
