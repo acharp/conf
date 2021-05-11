@@ -1,0 +1,38 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug worker",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "preLaunchTask": "tsc: build - server/worker/tsconfig.json",
+      "outFiles": [
+        "${workspaceFolder}/server/worker/build/release/**/*.js"
+      ],
+      "envFile": "${workspaceFolder}/server/config/config.local.debug",
+      "program": "${workspaceFolder}/server/worker/src/index.ts",
+      "args": ["put-live-apps"]
+    },
+
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug api",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "preLaunchTask": "tsc: build - server/api/tsconfig.json",
+      "outFiles": [
+        "${workspaceFolder}/server/api/build/release/**/*.js"
+      ],
+      "envFile": "${workspaceFolder}/server/config/config.local.debug",
+      "program": "${workspaceFolder}/server/api/src/index-debug.ts"
+    }
+  ]
+}

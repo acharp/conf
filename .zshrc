@@ -303,10 +303,30 @@ export GPG_TTY=`tty`
 export ES_HOME=~/Applications/elasticsearch-6.2.2
 export PATH="$PATH:$ES_HOME/bin"
 
+## init aws-vault cred setup for Postman ES ##
+awsvault_postman_es () {
+    cd $HOME/Postman
+    if [ $1 = "dev" ]
+    then
+        aws-vault exec -j -d 12h $1 | sed '$s/}/,"Region":"eu-west-2"}/' > aws-cred.json
+    elif [ $1 = "prod" ]
+    then
+        aws-vault exec -j -d 12h $1 | sed '$s/}/,"Region":"eu-central-1"}/' > aws-cred.json
+    fi
+
+    if [ $2 = 'init' ]
+    then
+        python -m http.server 51001
+    fi
+}
+alias esdev="awsvault_postman_es dev init"
+alias esprod="awsvault_postman_es prod init"
+alias upesdev="awsvault_postman_es dev update"
+alias upesprod="awsvault_postman_es prod update"
+
 ## message bird API keys and phone number ##
 export MBIRD_TEST
-export MBIRD_LIVE_A
-export MBIRD_LIVE_I
+export MBIRD_LIVE
 export PHONE_NUMBER
 
 # XXX: short circuit tabtab completion auto installation

@@ -1,7 +1,7 @@
 {
     ///// general /////
 
-    "terminal.integrated.shell.osx": "/bin/zsh",
+    "terminal.integrated.defaultProfile.osx": "/bin/zsh",
     "terminal.external.osxExec": "iTerm.app",
     "terminal.integrated.fontFamily": "Meslo LG M DZ for Powerline",
     "terminal.integrated.fontSize": 13,
@@ -276,5 +276,6 @@
         "editor.defaultFormatter": "ckolkman.vscode-postgres"
     },
     "extensions.ignoreRecommendations": false,
+    "docker.showStartPage": false,
 
 }
