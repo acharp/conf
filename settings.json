@@ -29,6 +29,12 @@
     "workbench.colorCustomizations": {
         "editorRuler.foreground": "#2E2E2E"
     },
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
 
 
 
@@ -75,7 +81,7 @@
         },
         // toggle search/replace
         {
-        "before": ["<leader", "/"],
+        "before": ["<leader>", "/"],
         "after": ["editor.action.startFindReplaceAction"]
         },
         // select all
@@ -167,6 +173,14 @@
         "before": ["<leader>", "b", "b", "d"],
         "commands": ["workbench.action.closeAllEditors"]
         // "commands": ["workbench.action.closeOtherEditors"]  // if you want kill all buffers except the current one
+        },
+        // revealDefinitionAside but to the LEFT side split!
+        {
+        "before": ["L"],
+        "commands": [
+            "editor.action.revealDefinition",
+            "workbench.action.moveEditorToPreviousGroup"
+        ],
         },
     ],
     "vim.visualModeKeyBindingsNonRecursive": [
