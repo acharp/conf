@@ -293,6 +293,26 @@ export SUB_PROD_HOST
 # Open CLI
 alias psql_subprod="PGPASSWORD=$SUB_PROD_PWD psql -h $SUB_PROD_HOST -U $SUB_PROD_USER -p $SUB_PROD_PORT -d $SUB_PROD_DB -a"
 
+# PP aliases to open ssh tunnel to RDS through a private bastion using aws ssm start-session
+# dev
+alias webevents-dev-tunnel="pp-tunnel dev bastion-host-dev 5432:$WE_DEV_ACTUAL_HOST:5432"
+alias general-dev-tunnel="pp-tunnel dev bastion-host-dev 5432:$SUB_DEV_ACTUAL_HOST:5432"
+alias accounts-dev-tunnel="pp-tunnel dev bastion-host-q42-dev 5432:$AC_DEV_ACTUAL_HOST:5432"
+# test
+alias webevents-test-tunnel="pp-tunnel dev bastion-host-test 5432:$WE_TEST_ACTUAL_HOST:5432"
+alias general-test-tunnel="pp-tunnel dev bastion-host-test 5432:$SUB_TEST_ACTUAL_HOST:5432"
+alias accounts-test-tunnel="pp-tunnel dev bastion-host-q42-test 5432:$AC_TEST_ACTUAL_HOST:5432"
+# acc
+alias webevents-acc-tunnel="pp-tunnel prod bastion-host-default 5432:$WE_ACC_ACTUAL_HOST:5432"
+alias general-acc-tunnel="pp-tunnel prod bastion-host-acc 5432:$SUB_ACC_ACTUAL_HOST:5432"
+alias accounts-acc-tunnel="pp-tunnel prod bastion-host-q42-acc 5432:$AC_ACC_ACTUAL_HOST:5432"
+# prod
+alias webevents-prod-tunnel="pp-tunnel prod bastion-host-default 5432:$WE_PROD_ACTUAL_HOST:5432"
+alias master-webevents-prod-tunnel="pp-tunnel prod bastion-host-default 5432:$WE_PROD_MASTER_ACTUAL_HOST:5432"
+alias general-prod-tunnel="pp-tunnel prod bastion-host-prod 5432:$SUB_PROD_ACTUAL_HOST:5432"
+alias accounts-prod-tunnel="pp-tunnel prod bastion-host-q42-prod 5432:$AC_PROD_ACTUAL_HOST:5432"
+
+
 ## kubectl autocompletion ##
 if [ /usr/local/bin/kubectl ]; then source <(kubectl completion zsh); fi
 
